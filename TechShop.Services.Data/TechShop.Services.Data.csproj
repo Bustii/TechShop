@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TechShop.Common\TechShop.Common.csproj" />
+    <ProjectReference Include="..\TechShop.Data.Models\TechShop.Data.Models.csproj" />
+    <ProjectReference Include="..\TechShop.Data\TechShop.Data.csproj" />
+    <ProjectReference Include="..\TechShop.Web.ViewModels\TechShop.Web.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
