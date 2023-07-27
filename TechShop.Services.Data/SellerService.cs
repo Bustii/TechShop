@@ -21,6 +21,7 @@
             Seller newSeller = new Seller()
             {
                 PhoneNumber = model.PhoneNumber,
+                Email = model.Email,
                 UserId = Guid.Parse(userId)
             };
 

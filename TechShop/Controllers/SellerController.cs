@@ -20,10 +20,12 @@
         }
 
         [HttpGet]
-        public async Task<IActionResult> BecomeSeller()
+        public async Task<IActionResult> Become()
         {
             string? userId = this.User.GetId();
+#pragma warning disable CS8604 // Possible null reference argument.
             bool isSeller = await this.sellerService.SellerExistsByUserIdAsync(userId);
+#pragma warning restore CS8604 // Possible null reference argument.
             if (isSeller)
             {
                 this.TempData[ErrorMessage] = "You are already an seller!";
@@ -35,10 +37,12 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> BecomeSeller(BecomeSellerFormModel model)
+        public async Task<IActionResult> Become(BecomeSellerFormModel model)
         {
             string? userId = this.User.GetId();
+#pragma warning disable CS8604 // Possible null reference argument.
             bool isSeller = await this.sellerService.SellerExistsByUserIdAsync(userId);
+#pragma warning restore CS8604 // Possible null reference argument.
             if (isSeller)
             {
                 this.TempData[ErrorMessage] = "You are already an seller!";
@@ -64,7 +68,7 @@
             {
                 this.TempData[ErrorMessage] = "You must not have any products in the shop cart to become an seller!";
 
-                return this.RedirectToAction("All", "Products"); // TODO
+                return this.RedirectToAction("Index", "Home"); // TODO
             }
 
             try
@@ -79,7 +83,7 @@
                 return this.RedirectToAction("Index", "Home");
             }
 
-            return this.RedirectToAction("All", "Products");
+            return this.RedirectToAction("Index", "Home"); // TODO
         }
     }
 }

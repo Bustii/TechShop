@@ -1,0 +1,42 @@
+﻿﻿@using TechShop.Services.Data.Interfaces
+@using TechShop.Web.Infrastructure.Extensions
+@using TechShop.Web.ViewModels.Products;
+@model ProductsAllViewModel
+
+@inject ISellerService SellerService
+@inject IProductService ProductService
+@{
+    bool isUserSeller = await SellerService.SellerExistsByUserIdAsync(User.GetId()!);
+    bool isSellerOwnerOfProduct = await SellerService.HasSoldProductsByUserIdAsync(User.GetId(), Model.Id); //  TO Implement Owner of product
+    bool isProductBuyedByUser = await ProductService.IsBuyedByUserWithIdAsync(Model.Id, User.GetId()!); // TO Implement Buyer of product
+}
+
+<div class="col-md-4">
+    <div class="card mb-3">
+        <img class="card-img-top" src="@Model.ImageUrl" alt="Product Image">
+        <div class="card-body text-center">
+            <h4>@Model.Name</h4>
+            <h6>Model: <b>@Model.Model</b></h6>
+            <h6>
+                Price:
+                <b>@($"{Model.Price:f2}") BGN</b>
+            </h6>
+            <br />
+            <a asp-controller="Product" asp-action="Details" asp-route-id="@Model.Id"
+               class="btn btn-success">Details</a>
+
+            
+            @if (User.Identity?.IsAuthenticated ?? false) 
+            {
+                @if (isUserSeller && isSellerOwnerOfProduct)  // TODO ADMIN ROLE
+                {
+                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Id"
+               class="btn btn-warning">Edit</a>
+                    <a asp-controller="House" asp-action="Delete" asp-route-id="@Model.Id"
+               class="btn btn-danger">Delete</a>
+                }
+                <p></p>
+            }
+        </div>
+    </div>
+</div>
