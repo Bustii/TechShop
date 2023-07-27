@@ -15,12 +15,12 @@
             this.dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<IndexViewModel>> LastThreePcsAsync()
+        public async Task<IEnumerable<IndexViewModel>> LastFivePcsAsync()
         {
-            IEnumerable<IndexViewModel> lastThreeHouses = await this.dbContext
+            IEnumerable<IndexViewModel> lastFiveProducts = await this.dbContext
                 .Products
                 .OrderByDescending(p => p.CreatedOn)
-                .Take(3)
+                .Take(5)
                 .Select(p => new IndexViewModel()
                 {
                     Id = p.Id.ToString(),
@@ -30,7 +30,7 @@
                 })
                 .ToArrayAsync();
 
-            return lastThreeHouses;
+            return lastFiveProducts;
         }
     }
 }

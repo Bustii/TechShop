@@ -1,4 +1,4 @@
-﻿namespace HouseRentingSystem.Common
+﻿namespace TechShop.Common
 {
     public static class NotificationMessagesConstants
     {

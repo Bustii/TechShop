@@ -17,7 +17,7 @@
         public async Task<IActionResult> Index()
         {
             IEnumerable<IndexViewModel> viewModel =
-                await this.productService.LastThreePcsAsync();
+                await this.productService.LastFivePcsAsync();
 
             return View();
         }

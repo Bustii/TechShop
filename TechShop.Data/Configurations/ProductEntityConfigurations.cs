@@ -41,7 +41,7 @@
                 ImageUrl = "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6401/6401009_sd.jpg;maxHeight=2000;maxWidth=2000",
                 Price = 1300.00M,
                 CategoryId = 1,
-                SellerId = Guid.Parse("F5086448-A741-4B80-B0C7-0263EB4E3AE9"), //SellerId
+                SellerId = Guid.Parse("bef01bd8-5d5f-4087-9aa9-35a43e44f314"), //SellerId
                 //BuyerId = Guid.Parse("079F3635-F031-4C1E-9750-08DB740AA10F") //BuyerId
             };
             products.Add(product);
@@ -54,7 +54,7 @@
                 ImageUrl = "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6511/6511432_rd.jpg;maxHeight=640;maxWidth=550",
                 Price = 1800.00M,
                 CategoryId = 2,
-                SellerId = Guid.Parse("F5086448-A741-4B80-B0C7-0263EB4E3AE9"), //SellerId
+                SellerId = Guid.Parse("bef01bd8-5d5f-4087-9aa9-35a43e44f314"), //SellerId
             };
             products.Add(product);
 
@@ -66,7 +66,7 @@
                 ImageUrl = "https://m.media-amazon.com/images/I/71y1msTBGAL._AC_SL1500_.jpg",
                 Price = 1900.00M,
                 CategoryId = 2,
-                SellerId = Guid.Parse("F5086448-A741-4B80-B0C7-0263EB4E3AE9"), //SellerId
+                SellerId = Guid.Parse("bef01bd8-5d5f-4087-9aa9-35a43e44f314"), //SellerId
             };
             products.Add(product);
 
