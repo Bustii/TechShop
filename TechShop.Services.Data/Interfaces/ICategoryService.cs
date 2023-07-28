@@ -1,6 +1,6 @@
 ﻿namespace TechShop.Services.Data.Interfaces
 {
-    using TechShop.Web.ViewModels.Category;
+    using Web.ViewModels.Category;
 
     public interface ICategoryService
     {

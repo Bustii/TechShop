@@ -2,9 +2,10 @@
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using TechShop.Services.Data.Interfaces;
-    using TechShop.Web.ViewModels.Category;
-    using TechShop.Web.Infrastructure.Extensions;
+
+    using Services.Data.Interfaces;
+    using ViewModels.Category;
+    using Infrastructure.Extensions;
 
     [Authorize]
     public class CategoryController : Controller

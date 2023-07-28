@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechShop.Web", "TechShop\TechShop.Web.csproj", "{FE11F7B9-0784-4DB2-B220-49A60B5C5415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechShop.Web", "TechShop\TechShop.Web.csproj", "{FE11F7B9-0784-4DB2-B220-49A60B5C5415}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{3C347043-E138-41D6-9361-38FB091F1A2B}"
 EndProject
@@ -11,17 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{59835F2A-2A98-40A4-B480-3C47558862A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechShop.Data", "TechShop.Data\TechShop.Data.csproj", "{DD2611C2-10F4-47C6-9849-138FCB70E752}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechShop.Data", "TechShop.Data\TechShop.Data.csproj", "{DD2611C2-10F4-47C6-9849-138FCB70E752}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechShop.Data.Models", "TechShop.Data.Models\TechShop.Data.Models.csproj", "{CE5E5B7B-E7A1-48F8-8CCD-F8B3E3EC9AFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechShop.Data.Models", "TechShop.Data.Models\TechShop.Data.Models.csproj", "{CE5E5B7B-E7A1-48F8-8CCD-F8B3E3EC9AFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechShop.Services.Data", "TechShop.Services.Data\TechShop.Services.Data.csproj", "{34B3C734-4C48-417C-8F40-5756133D4F45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechShop.Services.Data", "TechShop.Services.Data\TechShop.Services.Data.csproj", "{34B3C734-4C48-417C-8F40-5756133D4F45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechShop.Common", "TechShop.Common\TechShop.Common.csproj", "{8D052EBD-C5F8-47AF-BFCD-F89B1B6F2097}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechShop.Common", "TechShop.Common\TechShop.Common.csproj", "{8D052EBD-C5F8-47AF-BFCD-F89B1B6F2097}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechShop.Web.Infrastructure", "TechShop.Web.Infrastructure\TechShop.Web.Infrastructure.csproj", "{45693953-06E0-4FFD-A4CC-8E0E5D05543D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechShop.Web.Infrastructure", "TechShop.Web.Infrastructure\TechShop.Web.Infrastructure.csproj", "{45693953-06E0-4FFD-A4CC-8E0E5D05543D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechShop.Web.ViewModels", "TechShop.Web.ViewModels\TechShop.Web.ViewModels.csproj", "{CE69CAEC-C8ED-4E26-BF88-E1891113DBBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechShop.Web.ViewModels", "TechShop.Web.ViewModels\TechShop.Web.ViewModels.csproj", "{CE69CAEC-C8ED-4E26-BF88-E1891113DBBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechShop.Services.Data.Models", "TechShop.Services.Data.Models\TechShop.Services.Data.Models.csproj", "{675F6C3C-33DF-468D-8A1E-526AAF6D1AFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{CE69CAEC-C8ED-4E26-BF88-E1891113DBBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE69CAEC-C8ED-4E26-BF88-E1891113DBBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE69CAEC-C8ED-4E26-BF88-E1891113DBBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{675F6C3C-33DF-468D-8A1E-526AAF6D1AFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{675F6C3C-33DF-468D-8A1E-526AAF6D1AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{675F6C3C-33DF-468D-8A1E-526AAF6D1AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{675F6C3C-33DF-468D-8A1E-526AAF6D1AFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +74,7 @@ Global
 		{34B3C734-4C48-417C-8F40-5756133D4F45} = {D8FA099D-3103-41C5-81CD-872907870913}
 		{45693953-06E0-4FFD-A4CC-8E0E5D05543D} = {3C347043-E138-41D6-9361-38FB091F1A2B}
 		{CE69CAEC-C8ED-4E26-BF88-E1891113DBBC} = {3C347043-E138-41D6-9361-38FB091F1A2B}
+		{675F6C3C-33DF-468D-8A1E-526AAF6D1AFF} = {D8FA099D-3103-41C5-81CD-872907870913}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {50358A34-C715-4C55-9EEF-66F6E94495B5}

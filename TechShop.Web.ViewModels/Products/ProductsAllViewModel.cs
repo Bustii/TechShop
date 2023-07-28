@@ -8,9 +8,7 @@
 
             public string Name { get; set; } = null!;
 
-            public string Model { get; set; } = null!;
-
-            public string Description { get; set; } = null!;
+            public string Model { get; set; } = null!;         
 
             [Display(Name = "Image Link")]
             public string ImageUrl { get; set; } = null!;

@@ -1,4 +1,4 @@
-﻿namespace TechShop.Data.Configurations
+﻿namespace Data.Configurations
 {
     using Microsoft.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore.Metadata.Builders;

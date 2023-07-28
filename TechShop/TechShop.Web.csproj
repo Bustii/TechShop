@@ -81,6 +81,7 @@
     <ProjectReference Include="..\TechShop.Common\TechShop.Common.csproj" />
     <ProjectReference Include="..\TechShop.Data.Models\TechShop.Data.Models.csproj" />
     <ProjectReference Include="..\TechShop.Data\TechShop.Data.csproj" />
+    <ProjectReference Include="..\TechShop.Services.Data.Models\TechShop.Services.Data.Models.csproj" />
     <ProjectReference Include="..\TechShop.Services.Data\TechShop.Services.Data.csproj" />
     <ProjectReference Include="..\TechShop.Web.Infrastructure\TechShop.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\TechShop.Web.ViewModels\TechShop.Web.ViewModels.csproj" />
