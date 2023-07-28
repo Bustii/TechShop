@@ -21,10 +21,10 @@
                     }
                 </select>
             </div>
-            
+
             <div class="form-group">
-                <label asp-for="HousesPerPage"></label>
-                <select asp-for="HousesPerPage" class="form-control">
+                <label asp-for="ProductsPerPage"></label>
+                <select asp-for="ProductsPerPage" class="form-control">
                     <option value="3">3</option>
                     <option value="6">6</option>
                     <option value="9">9</option>
@@ -65,14 +65,14 @@
         previousPage = 1;
     }
 
-    int maxPage = (int)Math.Ceiling((double)Model.TotalHouses /
-        Model.HousesPerPage);
+    int maxPage = (int)Math.Ceiling((double)Model.TotalProducts /
+        Model.ProductsPerPage);
 }
 
 <div class="row mb-5">
     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-start">
         <a class="btn btn-primary @(Model.CurrentPage == 1 ? "disabled" : string.Empty)"
-           asp-controller="House"
+           asp-controller="Product"
            asp-action="All"
            asp-route-currentPage="@previousPage"
            asp-route-category="@Model.Category"
@@ -82,13 +82,13 @@
 
     @{
         bool shouldNextPageBeDisabled = Model.CurrentPage == maxPage ||
-            !Model.Products.Any();
+        !Model.Products.Any();
     }
 
     <div class="col-md-6 d-grid gap-2 d-md-flex justify-content-md-end">
-        <a class="btn btn-primary 
+        <a class="btn btn-primary
            @(shouldNextPageBeDisabled ? "disabled" : string.Empty)"
-           asp-controller="House"
+           asp-controller="Product"
            asp-action="All"
            asp-route-currentPage="@(Model.CurrentPage + 1)"
            asp-route-category="@Model.Category"
@@ -99,12 +99,12 @@
 
 @if (!Model.Products.Any())
 {
-    <h2 class="text-center">No houses found by the given criteria!</h2>
+    <h2 class="text-center">No products found by the given criteria!</h2>
 }
 
 <div class="row">
-    @foreach (var house in Model.Products)
+    @foreach (var product in Model.Products)
     {
-        <partial name="_HousePartial" model="@house" />
+        <partial name="_ProductPartial" model="@product" />
     }
 </div>

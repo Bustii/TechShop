@@ -37,7 +37,12 @@ namespace TechShop.Web
                 .AddEntityFrameworkStores<TechShopDbContext>();
 
             builder.Services.AddApplicationServices(typeof(IProductService));
-            builder.Services.AddScoped<ISellerService, SellerService>();
+            // builder.Services.AddScoped<ISellerService, SellerService>();
+
+            builder.Services.ConfigureApplicationCookie(cfg =>
+            {
+                cfg.LoginPath = "/User/Login";
+            });
 
             builder.Services.AddControllersWithViews();
 
@@ -51,7 +56,8 @@ namespace TechShop.Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Home/Error/500");
+                app.UseStatusCodePagesWithRedirects("/Home/Error?statusCode={0}");
 
                 app.UseHsts();
             }

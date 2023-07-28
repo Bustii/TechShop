@@ -1,6 +1,6 @@
 ﻿namespace TechShop.Common
 {
-    public class GeneralApplicationConstans
+    public static class GeneralApplicationConstans
     {
         public const int ReleaseYear = 2023;
 

@@ -22,6 +22,7 @@
             public const int ImageUrlMaxLength = 2048;
 
             public const string PriceMinValue = "1";          
+            public const string PriceMaxValue = "100000";          
         }
 
         public static class Seller

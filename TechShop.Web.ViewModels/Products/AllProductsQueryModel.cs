@@ -9,7 +9,7 @@
         public AllProductsQueryModel()
         {
             CurrentPage = DefaultPage;
-            HousesPerPage = EntitiesPerPage;
+            ProductsPerPage = EntitiesPerPage;
 
             Categories = new HashSet<string>();
             Products = new HashSet<ProductsAllViewModel>();
@@ -26,9 +26,9 @@
         public int CurrentPage { get; set; }
 
         [Display(Name = "Show Products On Page")]
-        public int HousesPerPage { get; set; }
+        public int ProductsPerPage { get; set; }
 
-        public int TotalHouses { get; set; }
+        public int TotalProducts { get; set; }
 
         public IEnumerable<string> Categories { get; set; }
 

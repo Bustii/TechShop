@@ -11,4 +11,4 @@
         public SellerInfoOnProductViewModel Seller { get; set; } = null!;
     }
 }
-}
+
