@@ -25,13 +25,13 @@
             public const string PriceMaxValue = "100000";          
         }
 
-        public static class Seller
-        {
-            public const int PhoneNumberMinLength = 7;
-            public const int PhoneNumberMaxLength = 15;
+        //public static class Seller
+        //{
+        //    public const int PhoneNumberMinLength = 7;
+        //    public const int PhoneNumberMaxLength = 15;
 
-            public const int EmailAddressMinLength = 5;
-            public const int EmailAddressMaxLength = 50;
-        }
+        //    public const int EmailAddressMinLength = 5;
+        //    public const int EmailAddressMaxLength = 50;
+        //}
     }
 }

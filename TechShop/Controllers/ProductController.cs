@@ -11,12 +11,11 @@
     public class ProductController : Controller
     {
         private readonly ICategoryService categoryService;
-        private readonly ISellerService sellerService;
+        //private readonly ISellerService sellerService;
         private readonly IProductService productService;
 
-        public ProductController(ICategoryService categoryService, ISellerService sellerService, IProductService productService)
+        public ProductController(ICategoryService categoryService, IProductService productService)
         {
-            this.sellerService = sellerService;
             this.categoryService = categoryService;
             this.productService = productService;
         }

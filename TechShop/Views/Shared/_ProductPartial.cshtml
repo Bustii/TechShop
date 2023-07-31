@@ -3,10 +3,9 @@
 @using TechShop.Web.ViewModels.Products;
 @model ProductsAllViewModel
 
-@inject ISellerService SellerService
 @inject IProductService ProductService
 @{
-    bool isUserSeller = await SellerService.SellerExistsByUserIdAsync(User.GetId()!);
+    //bool isUserSeller = await SellerService.SellerExistsByUserIdAsync(User.GetId()!);
     //bool isSellerOwnerOfProduct = await SellerService.HasSoldProductsByUserIdAsync(User.GetId(), Model.Id); //  TO Implement Owner of product
     //bool isProductBuyedByUser = await ProductService.IsBuyedByUserWithIdAsync(Model.Id, User.GetId()!); // TO Implement Buyer of product
 }

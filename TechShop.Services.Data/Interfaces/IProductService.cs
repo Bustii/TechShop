@@ -7,7 +7,7 @@
     public interface IProductService
     {
         Task<IEnumerable<IndexViewModel>> LastFivePcsAsync();
-        Task<string> CreateAndReturnIdAsync(ProductFormModel formModel, string sellerId);
+        Task<string> CreateAndReturnIdAsync(ProductFormModel formModel);
         Task<IEnumerable<ProductsAllViewModel>> AllProductsAsync(string productId);
 
         Task<AllProductsFilteredServiceModel> AllAsync(AllProductsQueryModel queryModel);

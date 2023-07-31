@@ -77,11 +77,11 @@
             };
         }
 
-        public async Task<IEnumerable<ProductsAllViewModel>> AllProductsAsync(string sellerId)
+        public async Task<IEnumerable<ProductsAllViewModel>> AllProductsAsync(string productId)
         {
             IEnumerable<ProductsAllViewModel> allProducts = await dbContext
                .Products
-               .Where(h => h.SellerId.ToString() == sellerId)
+               .Where(h => h.Id.ToString() == productId)
                .Select(h => new ProductsAllViewModel
                {
                    Id = h.Id.ToString(),
@@ -95,7 +95,7 @@
             return allProducts;
         }
 
-        public async Task<string> CreateAndReturnIdAsync(ProductFormModel formModel, string sellerId)
+        public async Task<string> CreateAndReturnIdAsync(ProductFormModel formModel)
         {
             Product newProduct = new Product()
             {
@@ -104,8 +104,7 @@
                 ImageUrl = formModel.ImageUrl,
                 Price = formModel.Price,
                 Description = formModel.Description,
-                CategoryId = formModel.CategoryId,
-                SellerId = Guid.Parse(sellerId)
+                CategoryId = formModel.CategoryId
             };
 
             await dbContext.Products.AddAsync(newProduct);
@@ -129,8 +128,7 @@
             Product product = await dbContext
                 .Products
                 .Include(h => h.Category)
-                .Include(h => h.Seller)
-                .ThenInclude(a => a.User)
+                .ThenInclude(a => a.Name)
                 .Where(h => h.IsActive)
                 .FirstAsync(h => h.Id.ToString() == productId);
 
