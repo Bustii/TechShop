@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TechShop.Data;
 
@@ -11,9 +12,10 @@ using TechShop.Data;
 namespace TechShop.Data.Migrations
 {
     [DbContext(typeof(TechShopDbContext))]
-    partial class TechShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230801094132_FixedNameSpace")]
+    partial class FixedNameSpace
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,7 +275,7 @@ namespace TechShop.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 8, 1, 9, 59, 11, 673, DateTimeKind.Utc).AddTicks(2815));
+                        .HasDefaultValue(new DateTime(2023, 8, 1, 9, 41, 31, 438, DateTimeKind.Utc).AddTicks(6321));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -314,11 +316,11 @@ namespace TechShop.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d29a7680-6164-4db5-8124-4efd9f5d58f2"),
+                            Id = new Guid("3ffbb83a-e0f6-49b9-8e24-0989fbb51db5"),
                             CategoryId = 1,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Intel Core i3-12100\r\nIntel UHD Graphics 730\r\nот 8GB до 32GB DDR4\r\nот 512GB SSD NVMe до 4TB (SSD и HDD)",
-                            ImageUrl = "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6401/6401009_sd.jpg",
+                            ImageUrl = "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6401/6401009_sd.jpg;maxHeight=640;maxWidth=550",
                             IsActive = false,
                             Model = "Lenovo",
                             Name = "Desktop Exteme configuration",
@@ -326,7 +328,7 @@ namespace TechShop.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("035ed542-0ee4-457f-af3e-847ab5a27269"),
+                            Id = new Guid("3a89a34f-b4c5-4a18-9fd2-420ce9a71744"),
                             CategoryId = 2,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Intel Core i7-11800H\r\nNVIDIA GeForce RTX 3050 Ti\r\nот 16GB до 64GB DDR4\r\nот 512GB SSD NVMe до 2TB SSD NVMe",
@@ -338,27 +340,15 @@ namespace TechShop.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d821d39f-c61e-4019-b9a1-23f7eae535d8"),
+                            Id = new Guid("36643172-db82-43e4-9d6c-37f5027168b9"),
                             CategoryId = 2,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Intel Core i5-1135G7\r\nIntel Iris Xe Graphics\r\nот 8GB до 40GB DDR4\r\nот 512GB SSD NVMe до 2TB SSD NVMe",
-                            ImageUrl = "https://m.media-amazon.com/images/I/71ehzrGUO7L.jpg",
+                            ImageUrl = "https://m.media-amazon.com/images/I/71y1msTBGAL._AC_SL1500_.jpg;maxHeight=640;maxWidth=550",
                             IsActive = false,
                             Model = "Asus",
                             Name = "ASUS Laptop L510 Ultra Thin Laptop",
                             Price = 1900.00m
-                        },
-                        new
-                        {
-                            Id = new Guid("802b06e9-bc6b-43a7-8c0c-d7899f12d1d0"),
-                            CategoryId = 2,
-                            CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Intel Core i7-10750H\r\nNVIDIA GeForce RTX 2070\r\nот 8GB до 32GB DDR5\r\nот 512GB SSD NVMe до 2TB SSD NVMe",
-                            ImageUrl = "https://laptopmedia.com/wp-content/uploads/2022/01/2-44.jpg",
-                            IsActive = false,
-                            Model = "Asus",
-                            Name = "ASUS ROG Strix G15",
-                            Price = 2500.00m
                         });
                 });
 

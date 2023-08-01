@@ -34,7 +34,7 @@
             category = new Category()
             {
                 Id = 3,
-                Name = "Gaming Components"
+                Name = "Gaming Computers"
             };
             categories.Add(category);
 
