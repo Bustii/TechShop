@@ -37,7 +37,7 @@ namespace TechShop.Web
                 .AddEntityFrameworkStores<TechShopDbContext>();
 
             builder.Services.AddApplicationServices(typeof(IProductService));
-            builder.Services.AddTransient<IProductService, ProductService>();
+           // builder.Services.AddTransient<IProductService, ProductService>();
 
             builder.Services.ConfigureApplicationCookie(cfg =>
             {
