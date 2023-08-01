@@ -4,13 +4,17 @@
     using Microsoft.EntityFrameworkCore;
     using TechShop.Data.Models;
 
-    public class ProductEntityConfigurations
+    public class ProductEntityConfigurations : IEntityTypeConfiguration<Product>
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder
                 .Property(h => h.CreatedOn)
                 .HasDefaultValue(DateTime.UtcNow);
+
+            builder
+                .Property(h => h.IsActive)
+                .HasDefaultValue(true);
 
             builder
                 .HasOne(p => p.Category)
@@ -33,7 +37,7 @@
                 Name = "Desktop Exteme configuration",
                 Model = "Lenovo",
                 Description = "Intel Core i3-12100\r\nIntel UHD Graphics 730\r\nот 8GB до 32GB DDR4\r\nот 512GB SSD NVMe до 4TB (SSD и HDD)",
-                ImageUrl = "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6401/6401009_sd.jpg;maxHeight=2000;maxWidth=2000",
+                ImageUrl = "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6401/6401009_sd.jpg;maxHeight=640;maxWidth=550",
                 Price = 1300.00M,
                 CategoryId = 1,
                 //BuyerId = Guid.Parse("079F3635-F031-4C1E-9750-08DB740AA10F") //BuyerId
@@ -56,7 +60,7 @@
                 Name = "ASUS Laptop L510 Ultra Thin Laptop",
                 Model = "Asus",
                 Description = "Intel Core i5-1135G7\r\nIntel Iris Xe Graphics\r\nот 8GB до 40GB DDR4\r\nот 512GB SSD NVMe до 2TB SSD NVMe",
-                ImageUrl = "https://m.media-amazon.com/images/I/71y1msTBGAL._AC_SL1500_.jpg",
+                ImageUrl = "https://m.media-amazon.com/images/I/71y1msTBGAL._AC_SL1500_.jpg; maxHeight = 640; maxWidth = 550",
                 Price = 1900.00M,
                 CategoryId = 2,
             };

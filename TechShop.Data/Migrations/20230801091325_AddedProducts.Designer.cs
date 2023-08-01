@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TechShop.Data;
 
@@ -11,9 +12,10 @@ using TechShop.Data;
 namespace TechShop.Data.Migrations
 {
     [DbContext(typeof(TechShopDbContext))]
-    partial class TechShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230801091325_AddedProducts")]
+    partial class AddedProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -273,7 +275,7 @@ namespace TechShop.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 8, 1, 9, 34, 24, 227, DateTimeKind.Utc).AddTicks(2659));
+                        .HasDefaultValue(new DateTime(2023, 8, 1, 9, 13, 25, 395, DateTimeKind.Utc).AddTicks(3354));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -314,11 +316,11 @@ namespace TechShop.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("dfc5cc78-ffd9-47b0-bf66-d30d243723d6"),
+                            Id = new Guid("592cc260-2c83-4c82-91b5-5d1fa734d848"),
                             CategoryId = 1,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Intel Core i3-12100\r\nIntel UHD Graphics 730\r\nот 8GB до 32GB DDR4\r\nот 512GB SSD NVMe до 4TB (SSD и HDD)",
-                            ImageUrl = "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6401/6401009_sd.jpg;maxHeight=640;maxWidth=550",
+                            ImageUrl = "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6401/6401009_sd.jpg;maxHeight=2000;maxWidth=2000",
                             IsActive = false,
                             Model = "Lenovo",
                             Name = "Desktop Exteme configuration",
@@ -326,7 +328,7 @@ namespace TechShop.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0ed62da5-0839-40a7-ba13-32ae61824ee2"),
+                            Id = new Guid("793aa38d-73dc-410e-8322-65ea1301dece"),
                             CategoryId = 2,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Intel Core i7-11800H\r\nNVIDIA GeForce RTX 3050 Ti\r\nот 16GB до 64GB DDR4\r\nот 512GB SSD NVMe до 2TB SSD NVMe",
@@ -338,11 +340,11 @@ namespace TechShop.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c56d6e6b-921f-47fa-af2c-d56396592777"),
+                            Id = new Guid("634a647a-b133-4f6c-b931-236f19c2b7d6"),
                             CategoryId = 2,
                             CreatedOn = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Intel Core i5-1135G7\r\nIntel Iris Xe Graphics\r\nот 8GB до 40GB DDR4\r\nот 512GB SSD NVMe до 2TB SSD NVMe",
-                            ImageUrl = "https://m.media-amazon.com/images/I/71y1msTBGAL._AC_SL1500_.jpg; maxHeight = 640; maxWidth = 550",
+                            ImageUrl = "https://m.media-amazon.com/images/I/71y1msTBGAL._AC_SL1500_.jpg",
                             IsActive = false,
                             Model = "Asus",
                             Name = "ASUS Laptop L510 Ultra Thin Laptop",
