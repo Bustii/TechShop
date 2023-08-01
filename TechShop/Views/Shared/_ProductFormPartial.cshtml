@@ -29,7 +29,7 @@
                 <input asp-for="Price" class="form-control">
                 <span asp-validation-for="Price" class="small text-danger"></span>
             </div>
-            <div class="form-group"> // TODO - Add categories
+            <div class="form-group">
                 <label asp-for="CategoryId"></label>
                 <select asp-for="CategoryId" class="form-control">
                     @foreach (var category in Model.Categories)
