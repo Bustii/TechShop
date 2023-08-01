@@ -25,7 +25,7 @@
 
         public int CurrentPage { get; set; }
 
-        [Display(Name = "Show Products On Page")]
+        [Display(Name = "Products On Page")]
         public int ProductsPerPage { get; set; }
 
         public int TotalProducts { get; set; }

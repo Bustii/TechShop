@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ProductService.cs~RF694144d4.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TechShop.Common\TechShop.Common.csproj" />
     <ProjectReference Include="..\TechShop.Data.Models\TechShop.Data.Models.csproj" />
     <ProjectReference Include="..\TechShop.Data\TechShop.Data.csproj" />
