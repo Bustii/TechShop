@@ -5,10 +5,10 @@
 @{
     ViewData["Title"] = "Home Page";
 
-    //var products = Model.ToList();
+    var products = Model.ToList();
 }
 
-@*@if (!products.Any())
+@if (!products.Any())
 {
     <div class="mt-4 p-5 bg-light">
         <h1 class="display-4">Welcome to Tech Shop!</h1>
@@ -30,12 +30,12 @@
         {
             var product = products[i];
             <div class="carousel-item @(i == 0 ? "active" : string.Empty)">
-                <img class="d-block w-100" style="height:500px"
-                 src="@product.ImageUrl" alt="@product.Model">
+                <img class="mx-auto d-block w-550" style="height:640px"
+                 src="@product.ImageUrl" alt="@product.Name">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>
                         <a class="btn btn-primary" asp-controller="Product" asp-action="Details"
-                       asp-route-id="@product.Id"> @product.Model</a>
+                       asp-route-id="@product.Id"> @product.Name</a>
                     </h5>
                 </div>
             </div>
@@ -52,4 +52,3 @@
 </div>
 
 <div class="mb-5"></div>
-*@

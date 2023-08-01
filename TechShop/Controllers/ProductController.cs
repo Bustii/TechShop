@@ -44,7 +44,7 @@
             {
                 TempData[ErrorMessage] = "Products with the provided id does not exist!";
 
-                return RedirectToAction("All", "Products");
+                return RedirectToAction("All", "Product");
             }
 
             try
@@ -65,7 +65,7 @@
             TempData[ErrorMessage] =
                 "Unexpected error occurred! Please try again later or contact administrator";
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("All", "Product");
         }
     }
 }

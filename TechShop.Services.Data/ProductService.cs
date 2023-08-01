@@ -144,12 +144,11 @@
             };
         }
 
-        public async Task<IEnumerable<IndexViewModel>> LastFivePcsAsync()
+        public async Task<IEnumerable<IndexViewModel>> LastFiveProductsAsync()
         {
             IEnumerable<IndexViewModel> lastFiveProducts = await this.dbContext
                 .Products
-                .OrderByDescending(p => p.CreatedOn)
-                .Take(5)
+                .OrderByDescending(p => p.Id)
                 .Select(p => new IndexViewModel()
                 {
                     Id = p.Id.ToString(),
@@ -157,7 +156,8 @@
                     Model = p.Model,
                     ImageUrl = p.ImageUrl
                 })
-                .ToArrayAsync();
+                .Take(5)
+                .ToListAsync();
 
             return lastFiveProducts;
         }

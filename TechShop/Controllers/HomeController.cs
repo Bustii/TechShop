@@ -16,10 +16,10 @@
 
         public async Task<IActionResult> Index()
         {
-            IEnumerable<IndexViewModel> viewModel =
-                await this.productService.LastFivePcsAsync();
+            IEnumerable<IndexViewModel> viewModels =
+                await this.productService.LastFiveProductsAsync();
 
-            return View();
+            return View(viewModels);
         }
       
 

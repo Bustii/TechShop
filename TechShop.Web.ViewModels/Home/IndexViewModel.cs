@@ -9,7 +9,5 @@
         public string Model { get; set; } = null!;
 
         public string ImageUrl { get; set; } = null!;
-
-        public string Seller { get; set; } = null!;
     }
 }
