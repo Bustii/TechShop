@@ -128,7 +128,7 @@
             Product product = await dbContext
                 .Products
                 .Include(h => h.Category)
-                .ThenInclude(a => a.Name)
+                //.ThenInclude(a => a.Name)
                 .Where(h => h.IsActive)
                 .FirstAsync(h => h.Id.ToString() == productId);
 
@@ -140,8 +140,23 @@
                 ImageUrl = product.ImageUrl,
                 Price = product.Price,
                 Description = product.Description,
-                Category = product.Category.Name,
+                Category = product.Category.Name
             };
+
+            //return await dbContext
+            //    .Products
+            //    .Where(h => h.IsActive)
+            //    .Select(h => new ProductsDetailsViewModel
+            //    {
+            //        Id = h.Id.ToString(),
+            //        Name = h.Name,
+            //        Model = h.Model,
+            //        ImageUrl = h.ImageUrl,
+            //        Price = h.Price,
+            //        Description = h.Description,
+            //        Category = h.Category.Name
+            //    })
+            //    .FirstAsync(h => h.Id.ToString() == productId);
         }
 
         public async Task<IEnumerable<IndexViewModel>> LastFiveProductsAsync()

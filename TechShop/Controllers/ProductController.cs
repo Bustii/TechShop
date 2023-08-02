@@ -2,6 +2,7 @@
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using TechShop.Services.Data.Interfaces;
     using TechShop.Services.Data.Models;
     using TechShop.Web.Infrastructure.Extensions;
@@ -98,9 +99,12 @@
             }
 
             try
-            {               
+            {
+                string productId =
+                    await productService.CreateAndReturnIdAsync(productModel);
+
                 TempData[SuccessMessage] = "Product was added successfully!";
-                return RedirectToAction("All", "Product");
+                return RedirectToAction("All", "Product", new { id = productId });
             }
             catch (Exception)
             {
