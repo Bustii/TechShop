@@ -24,7 +24,7 @@
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> All([FromQuery]AllProductsQueryModel queryModel)
+        public async Task<IActionResult> All([FromQuery] AllProductsQueryModel queryModel)
         {
             AllProductsFilteredServiceModel serviceModel =
                  await productService.AllAsync(queryModel);
@@ -64,7 +64,7 @@
 
         [HttpGet]
         public async Task<IActionResult> Add()
-        {           
+        {
             try
             {
                 ProductFormModel formModel = new ProductFormModel()
@@ -82,7 +82,7 @@
         [HttpPost]
         public async Task<IActionResult> Add(ProductFormModel productModel)
         {
-            
+
             bool productCategoryExists =
                 await categoryService.ExistsByIdAsync(productModel.CategoryId);
             if (!productCategoryExists)
@@ -124,7 +124,7 @@
                 TempData[ErrorMessage] = "The product with this id does not exist!";
 
                 return RedirectToAction("All", "Product");
-            }                      
+            }
 
             try
             {
@@ -158,11 +158,11 @@
                 TempData[ErrorMessage] = "The product with this id does not exist!";
 
                 return RedirectToAction("All", "Product");
-            }                     
+            }
 
             try
             {
-                await productService.EditHouseByIdAndFormModelAsync(id, productModel);
+                await productService.EditProductByIdAndFormModelAsync(id, productModel);
             }
             catch (Exception)
             {
@@ -184,5 +184,59 @@
 
             return RedirectToAction("All", "Product");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(string id)
+        {
+            bool productExists = await productService
+                .ExistsByIdAsync(id);
+            if (!productExists)
+            {
+                TempData[ErrorMessage] = "The product with this id does not exist!";
+
+                return RedirectToAction("All", "Product");
+            }
+
+            try
+            {
+                ProductPreDeleteDetailsViewModel productModel =
+                    await productService.GetProductForDeleteByIdAsync(id);
+
+                return View(productModel);
+            }
+
+            catch (Exception)
+            {
+                return GeneralError();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string id, ProductPreDeleteDetailsViewModel model)
+        {
+            bool productExists = await productService
+                .ExistsByIdAsync(id);
+            if (!productExists)
+            {
+                TempData[ErrorMessage] = "The product with this id does not exist!";
+
+                return RedirectToAction("All", "Product");
+            }
+
+            try
+            {
+                await productService.DeleteProductByIdAsync(id);
+
+                TempData[WarningMessage] = "The product was successfully deleted!";
+                return RedirectToAction("All", "Product");
+            }
+            catch (Exception)
+            {
+                return GeneralError();
+            }
+        }
     }
 }
+    
+    
+    

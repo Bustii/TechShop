@@ -20,6 +20,10 @@
 
         Task<ProductFormModel> GetProductForEditByIdAsync(string productId);
 
-        Task EditHouseByIdAndFormModelAsync(string productId, ProductFormModel model);
+        Task EditProductByIdAndFormModelAsync(string productId, ProductFormModel model);
+
+        Task<ProductPreDeleteDetailsViewModel> GetProductForDeleteByIdAsync(string productId);
+
+        Task DeleteProductByIdAsync(string productId);
     }
 }

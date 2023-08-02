@@ -113,7 +113,19 @@
             return newProduct.Id.ToString();
         }
 
-        public async Task EditHouseByIdAndFormModelAsync(string productId, ProductFormModel model)
+        public async Task DeleteProductByIdAsync(string productId)
+        {
+            Product productToDelete = await dbContext
+                .Products
+                .Where(h => h.IsActive)
+                .FirstAsync(h => h.Id.ToString() == productId);
+
+            productToDelete.IsActive = false;
+
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task EditProductByIdAndFormModelAsync(string productId, ProductFormModel model)
         {
             Product product = await dbContext
                 .Products
@@ -146,7 +158,6 @@
             Product product = await dbContext
                 .Products
                 .Include(h => h.Category)
-                //.ThenInclude(a => a.Name)
                 .Where(h => h.IsActive)
                 .FirstAsync(h => h.Id.ToString() == productId);
 
@@ -160,6 +171,21 @@
                 Description = product.Description,
                 Category = product.Category.Name
             };           
+        }
+
+        public async Task<ProductPreDeleteDetailsViewModel> GetProductForDeleteByIdAsync(string productId)
+        {
+            Product product = await dbContext
+                .Products
+                .Where(h => h.IsActive)
+                .FirstAsync(h => h.Id.ToString() == productId);
+
+            return new ProductPreDeleteDetailsViewModel
+            {
+                Name = product.Name,
+                Model = product.Model,
+                ImageUrl = product.ImageUrl
+            };
         }
 
         public async Task<ProductFormModel> GetProductForEditByIdAsync(string productId)
