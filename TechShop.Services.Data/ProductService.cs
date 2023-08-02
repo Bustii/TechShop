@@ -113,6 +113,24 @@
             return newProduct.Id.ToString();
         }
 
+        public async Task EditHouseByIdAndFormModelAsync(string productId, ProductFormModel model)
+        {
+            Product product = await dbContext
+                .Products
+                .Include(h => h.Category)
+                .Where(h => h.IsActive)
+                .FirstAsync(h => h.Id.ToString() == productId);
+
+            product.Name = model.Name;
+            product.Model = model.Model;
+            product.Description = model.Description;
+            product.ImageUrl = model.ImageUrl;
+            product.Price = model.Price;
+            product.CategoryId = model.CategoryId;
+
+            await dbContext.SaveChangesAsync();
+        }
+
         public async Task<bool> ExistsByIdAsync(string productId)
         {
             bool result = await dbContext
@@ -141,22 +159,27 @@
                 Price = product.Price,
                 Description = product.Description,
                 Category = product.Category.Name
-            };
+            };           
+        }
 
-            //return await dbContext
-            //    .Products
-            //    .Where(h => h.IsActive)
-            //    .Select(h => new ProductsDetailsViewModel
-            //    {
-            //        Id = h.Id.ToString(),
-            //        Name = h.Name,
-            //        Model = h.Model,
-            //        ImageUrl = h.ImageUrl,
-            //        Price = h.Price,
-            //        Description = h.Description,
-            //        Category = h.Category.Name
-            //    })
-            //    .FirstAsync(h => h.Id.ToString() == productId);
+        public async Task<ProductFormModel> GetProductForEditByIdAsync(string productId)
+        {
+            Product product = await dbContext
+                 .Products
+                 .Include(h => h.Category)
+                 //.ThenInclude(a => a.Name)
+                 .Where(h => h.IsActive)
+                 .FirstAsync(h => h.Id.ToString() == productId);
+
+            return new ProductFormModel
+            {
+                Name = product.Name,
+                Model = product.Model,
+                Description = product.Description,
+                ImageUrl = product.ImageUrl,
+                Price = product.Price,
+                CategoryId = product.CategoryId,
+            };
         }
 
         public async Task<IEnumerable<IndexViewModel>> LastFiveProductsAsync()

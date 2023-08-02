@@ -7,7 +7,9 @@
     public interface IProductService
     {
         Task<IEnumerable<IndexViewModel>> LastFiveProductsAsync();
+
         Task<string> CreateAndReturnIdAsync(ProductFormModel formModel);
+
         Task<IEnumerable<ProductsAllViewModel>> AllProductsAsync(string productId);
 
         Task<AllProductsFilteredServiceModel> AllAsync(AllProductsQueryModel queryModel);
@@ -15,5 +17,9 @@
         Task<bool> ExistsByIdAsync(string productId);
 
         Task<ProductsDetailsViewModel> GetDetailsByIdAsync(string productId);
+
+        Task<ProductFormModel> GetProductForEditByIdAsync(string productId);
+
+        Task EditHouseByIdAndFormModelAsync(string productId, ProductFormModel model);
     }
 }

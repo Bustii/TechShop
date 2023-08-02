@@ -114,6 +114,68 @@
                 return View(productModel);
             }
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(string id)
+        {
+            bool productExists = await productService
+                .ExistsByIdAsync(id);
+            if (!productExists)
+            {
+                TempData[ErrorMessage] = "The product with this id does not exist!";
+
+                return RedirectToAction("All", "Product");
+            }                      
+
+            try
+            {
+                ProductFormModel productModel = await productService
+                    .GetProductForEditByIdAsync(id);
+                productModel.Categories = await categoryService.AllCategoriesAsync();
+
+                return View(productModel);
+            }
+            catch (Exception)
+            {
+                return GeneralError();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(string id, ProductFormModel productModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                productModel.Categories = await categoryService.AllCategoriesAsync();
+
+                return View(productModel);
+            }
+
+            bool productExists = await productService
+                .ExistsByIdAsync(id);
+
+            if (!productExists)
+            {
+                TempData[ErrorMessage] = "The product with this id does not exist!";
+
+                return RedirectToAction("All", "Product");
+            }                     
+
+            try
+            {
+                await productService.EditHouseByIdAndFormModelAsync(id, productModel);
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError(string.Empty,
+                    "Unexpected error occurred while trying to edit the house. Please try again later!");
+                productModel.Categories = await categoryService.AllCategoriesAsync();
+
+                return View(productModel);
+            }
+
+            TempData[SuccessMessage] = "Product was edited successfully!";
+            return RedirectToAction("Details", "Product", new { id });
+        }
 
         private IActionResult GeneralError()
         {

@@ -21,7 +21,9 @@
                 <b>@($"{Model.Price:f2}") BGN</b>
             </p>
             <p>Description: <b>@Model.Description</b></p>
-            <p>Category: <b>@Model.Category</b></p>            
+            <p>Category: <b>@Model.Category</b></p>
+            <a class="btn btn-warning" asp-controller="Product" asp-action="Edit"
+               asp-route-id="@Model.Id">Edit</a>
         </div>
     </div>
 </div>
