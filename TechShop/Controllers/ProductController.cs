@@ -108,7 +108,7 @@
             }
             catch (Exception)
             {
-                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to add your new house! Please try again later or contact administrator!");
+                ModelState.AddModelError(string.Empty, "Unexpected error occurred while trying to add your new product! Please try again later or contact administrator!");
                 productModel.Categories = await categoryService.AllCategoriesAsync();
 
                 return View(productModel);
@@ -167,7 +167,7 @@
             catch (Exception)
             {
                 ModelState.AddModelError(string.Empty,
-                    "Unexpected error occurred while trying to edit the house. Please try again later!");
+                    "Unexpected error occurred! Please try again later or contact administrator");
                 productModel.Categories = await categoryService.AllCategoriesAsync();
 
                 return View(productModel);
