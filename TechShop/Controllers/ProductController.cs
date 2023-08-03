@@ -210,7 +210,7 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(string id, ProductPreDeleteDetailsViewModel model)
+        public async Task<IActionResult> Delete(string id, ProductPreDeleteDetailsViewModel productModel)
         {
             bool productExists = await productService
                 .ExistsByIdAsync(id);

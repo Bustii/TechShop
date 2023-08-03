@@ -34,11 +34,11 @@
 
             product = new Product()
             {
-                Name = "Desktop Exteme configuration",
-                Model = "Lenovo",
-                Description = "Intel Core i3-12100\r\nIntel UHD Graphics 730\r\nот 8GB до 32GB DDR4\r\nот 512GB SSD NVMe до 4TB (SSD и HDD)",
-                ImageUrl = "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6401/6401009_sd.jpg",
-                Price = 1300.00M,
+                Name = "Predator Orion 5000 PO5-650",
+                Model = "Acer",
+                Description = "Intel Core i7-13700F\r\nNVIDIA GeForce RTX 4070 Ti\r\n32GB DDR5\r\nот 1TB SSD NVMe до 4TB (SSD NVMe и HDD)",
+                ImageUrl = "https://laptop.bg/system/images/413287/normal/Predator_Orion_7000_PO5_650.png",
+                Price = 2300.00M,
                 CategoryId = 3
                 //BuyerId = Guid.Parse("079F3635-F031-4C1E-9750-08DB740AA10F") //BuyerId
             };
@@ -46,21 +46,21 @@
 
             product = new Product()
             {
-                Name = "MSI Katana GF76 11UD",
-                Model = "Msi",
-                Description = "Intel Core i7-11800H\r\nNVIDIA GeForce RTX 3050 Ti\r\nот 16GB до 64GB DDR4\r\nот 512GB SSD NVMe до 2TB SSD NVMe",
-                ImageUrl = "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6511/6511432_rd.jpg;maxHeight=640;maxWidth=550",
-                Price = 1800.00M,
+                Name = "Titan GT77 HX 13VI",
+                Model = "MSI",
+                Description = "Intel Core i9-13980HX\r\nNVIDIA GeForce RTX 4090\r\n64GB DDR5\r\nот 2TB SSD NVMe до 4TB SSD NVMe",
+                ImageUrl = "https://laptop.bg/system/images/378257/normal/msi_titan_gt77_hx_13vi_9S717Q211055.png",
+                Price = 2800.00M,
                 CategoryId = 2
             };
             products.Add(product);
 
             product = new Product()
             {
-                Name = "ASUS Laptop L510 Ultra Thin Laptop",
+                Name = "ROG Strix G15 G513IC-HN004",
                 Model = "Asus",
-                Description = "Intel Core i5-1135G7\r\nIntel Iris Xe Graphics\r\nот 8GB до 40GB DDR4\r\nот 512GB SSD NVMe до 2TB SSD NVMe",
-                ImageUrl = "https://m.media-amazon.com/images/I/71ehzrGUO7L.jpg",
+                Description = "AMD Ryzen™ 7 4800H\r\nNVIDIA GeForce RTX 3050\r\nот 16GB до 64GB DDR4\r\nот 512GB SSD NVMe до 2512GB SSD NVMe",
+                ImageUrl = "https://laptop.bg/system/images/293133/normal/asus_rog_strix_g15_g513ichn004.jpg",
                 Price = 1900.00M,
                 CategoryId = 2
             };
@@ -68,12 +68,12 @@
 
             product = new Product()
             {
-                Name = "ASUS ROG Strix G15",
+                Name = "ROG Hyperion",
                 Model = "Asus",
-                Description = "Intel Core i7-10750H\r\nNVIDIA GeForce RTX 2070\r\nот 8GB до 32GB DDR5\r\nот 512GB SSD NVMe до 2TB SSD NVMe",
-                ImageUrl = "https://laptopmedia.com/wp-content/uploads/2022/01/2-44.jpg",
-                Price = 2500.00M,
-                CategoryId = 2
+                Description = "от Intel Core i9-13900K\r\nFull Water Loop\r\nGeForce RTX 4090\r\n64GB DDR5\r\nот 2TB Gen4 PCIe NVMe SSD",
+                ImageUrl = "https://laptop.bg/system/images/409277/normal/grigs_hyperion_by_alexma3x.png",
+                Price = 5000.00M,
+                CategoryId = 1
             };
             products.Add(product);
 

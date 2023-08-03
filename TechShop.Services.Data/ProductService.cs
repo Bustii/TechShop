@@ -125,7 +125,7 @@
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task EditProductByIdAndFormModelAsync(string productId, ProductFormModel model)
+        public async Task EditProductByIdAndFormModelAsync(string productId, ProductFormModel productModel)
         {
             Product product = await dbContext
                 .Products
@@ -133,12 +133,12 @@
                 .Where(h => h.IsActive)
                 .FirstAsync(h => h.Id.ToString() == productId);
 
-            product.Name = model.Name;
-            product.Model = model.Model;
-            product.Description = model.Description;
-            product.ImageUrl = model.ImageUrl;
-            product.Price = model.Price;
-            product.CategoryId = model.CategoryId;
+            product.Name = productModel.Name;
+            product.Model = productModel.Model;
+            product.Description = productModel.Description;
+            product.ImageUrl = productModel.ImageUrl;
+            product.Price = productModel.Price;
+            product.CategoryId = productModel.CategoryId;
 
             await dbContext.SaveChangesAsync();
         }
