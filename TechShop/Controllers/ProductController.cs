@@ -2,10 +2,8 @@
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
     using TechShop.Services.Data.Interfaces;
     using TechShop.Services.Data.Models;
-    using TechShop.Web.Infrastructure.Extensions;
     using TechShop.Web.ViewModels.Products;
     using static TechShop.Common.NotificationMessagesConstants;
 
