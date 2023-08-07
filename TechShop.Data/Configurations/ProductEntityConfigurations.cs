@@ -21,9 +21,14 @@
                 .WithMany(c => c.Products)
                 .HasForeignKey(h => h.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
-          
 
-           builder.HasData(this.GenerateProduct());
+            builder
+                .HasOne(h => h.Buyer)
+                .WithMany(a => a.BuyedProducts)
+                .HasForeignKey(h => h.BuyerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasData(this.GenerateProduct());
         }
 
         private Product[] GenerateProduct()
