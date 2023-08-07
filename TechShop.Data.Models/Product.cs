@@ -39,13 +39,9 @@
 
         public virtual Category Category { get; set; } = null!;
 
-        //public Guid SellerId { get; set; }
+        public Guid? BuyerId { get; set; }
 
-        //public virtual Seller Seller { get; set; } = null!;
-
-        //public Guid? BuyerId { get; set; }
-
-        //public virtual ApplicationUser? Buyer { get; set; }
+        public virtual User? Buyer { get; set; }
 
     }
 }

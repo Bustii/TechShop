@@ -39,8 +39,8 @@
                 Description = "Intel Core i7-13700F\r\nNVIDIA GeForce RTX 4070 Ti\r\n32GB DDR5\r\nот 1TB SSD NVMe до 4TB (SSD NVMe и HDD)",
                 ImageUrl = "https://laptop.bg/system/images/413287/normal/Predator_Orion_7000_PO5_650.png",
                 Price = 2300.00M,
-                CategoryId = 3
-                //BuyerId = Guid.Parse("079F3635-F031-4C1E-9750-08DB740AA10F") //BuyerId
+                CategoryId = 3,
+                BuyerId = Guid.Parse("3561c2dc-ec6f-4f8e-90eb-f0a37c776e50") //BuyerId
             };
             products.Add(product);
 

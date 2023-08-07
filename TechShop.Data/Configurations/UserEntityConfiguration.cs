@@ -10,11 +10,11 @@
         {
             builder
                 .Property(u => u.FirstName)
-                .HasDefaultValue("Test");
+                .HasDefaultValue("Ventsislav");
 
             builder
                 .Property(u => u.LastName)
-                .HasDefaultValue("Testov");
+                .HasDefaultValue("Minev");
         }
     }
 }
