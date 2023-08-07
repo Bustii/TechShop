@@ -6,7 +6,7 @@
     using Microsoft.AspNetCore.Identity;
     using System.Reflection;
 
-    public class TechShopDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
+    public class TechShopDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     {
         public TechShopDbContext(DbContextOptions<TechShopDbContext> options)
             : base(options)
@@ -17,6 +17,7 @@
 
         public DbSet<Product> Products { get; set; } = null!;
 
+        public DbSet<Buyer> Buyers { get; set; } = null!;
         
         protected override void OnModelCreating(ModelBuilder builder)
         {

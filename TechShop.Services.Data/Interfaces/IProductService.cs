@@ -12,7 +12,7 @@
 
         Task<IEnumerable<ProductsAllViewModel>> AllProductsAsync(string productId);
 
-        Task<AllProductsFilteredServiceModel> AllAsync(AllProductsQueryModel queryModel);
+        Task<AllProductsFilteredServiceModel> AllAsync(AllProductsQueryModel productModel);
 
         Task<bool> ExistsByIdAsync(string productId);
 

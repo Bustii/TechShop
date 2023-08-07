@@ -1,5 +1,6 @@
 namespace TechShop.Web
 {
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
 
     using TechShop.Data;
@@ -21,7 +22,7 @@ namespace TechShop.Web
             builder.Services.AddDbContext<TechShopDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
-            builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+            builder.Services.AddDefaultIdentity<User>(options =>
             {
                 options.SignIn.RequireConfirmedAccount =
                     builder.Configuration.GetValue<bool>("Identity:SignIn:RequireConfirmedAccount");
@@ -34,6 +35,7 @@ namespace TechShop.Web
                 options.Password.RequiredLength =
                     builder.Configuration.GetValue<int>("Identity:Password:RequiredLength");
             })
+                .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<TechShopDbContext>();
 
             builder.Services.AddApplicationServices(typeof(IProductService));
