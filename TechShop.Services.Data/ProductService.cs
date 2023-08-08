@@ -122,6 +122,7 @@
 
             productToDelete.IsActive = false;
 
+            dbContext.Remove(productToDelete);
             await dbContext.SaveChangesAsync();
         }
 
