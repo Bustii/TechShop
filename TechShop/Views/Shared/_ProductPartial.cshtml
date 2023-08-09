@@ -4,11 +4,6 @@
 @model ProductsAllViewModel
 
 @inject IProductService ProductService
-@{
-    //bool isUserSeller = await SellerService.SellerExistsByUserIdAsync(User.GetId()!);
-    //bool isSellerOwnerOfProduct = await SellerService.HasSoldProductsByUserIdAsync(User.GetId(), Model.Id); //  TO Implement Owner of product
-    //bool isProductBuyedByUser = await ProductService.IsBuyedByUserWithIdAsync(Model.Id, User.GetId()!); // TO Implement Buyer of product
-}
 
 <div class="col-md-4">
     <div class="card mb-3">
@@ -27,18 +22,19 @@
                class="btn btn-warning">Edit</a>
             <a asp-controller="Product" asp-action="Delete" asp-route-id="@Model.Id"
                class="btn btn-danger">Delete</a>
+            <form asp-controller="Cart" asp-action="Add" asp-route-id="@Model.Id">
+                <button type="submit"  class="btn btn-success">Buy</></button></form>
 
-            
-           @* @if (User.Identity?.IsAuthenticated ?? false) 
+            @* @if (User.Identity?.IsAuthenticated ?? false)
             {
-                @if (isUserSeller && isSellerOwnerOfProduct)  // TODO ADMIN ROLE
-                {
-                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Id"
-               class="btn btn-warning">Edit</a>
-                    <a asp-controller="House" asp-action="Delete" asp-route-id="@Model.Id"
-               class="btn btn-danger">Delete</a>
-                }
-                <p></p>
+            @if (isUserSeller && isSellerOwnerOfProduct)  // TODO ADMIN ROLE
+            {
+            <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.Id"
+            class="btn btn-warning">Edit</a>
+            <a asp-controller="House" asp-action="Delete" asp-route-id="@Model.Id"
+            class="btn btn-danger">Delete</a>
+            }
+            <p></p>
             }*@
         </div>
     </div>

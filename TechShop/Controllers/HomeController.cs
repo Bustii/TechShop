@@ -20,6 +20,8 @@
                 await this.productService.LastFiveProductsAsync();
 
             return View(viewModels);
+
+            return Ok();
         }
       
 

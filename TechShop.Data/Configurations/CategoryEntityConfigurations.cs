@@ -8,6 +8,12 @@
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
+            builder
+                .HasMany(c => c.Products)
+                .WithOne(i => i.Category)
+                .HasForeignKey(i => i.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.HasData(this.GenerateCategories());
         }
 
@@ -38,7 +44,36 @@
             };
             categories.Add(category);
 
+            category = new Category()
+            {
+                Id = 4,
+                Name = "Monitors"
+            };
+            categories.Add(category);
+
+            category = new Category()
+            {
+                Id = 5,
+                Name = "Keyboards"
+            };
+            categories.Add(category);
+
+            category = new Category()
+            {
+                Id = 6,
+                Name = "Mouses"
+            };
+            categories.Add(category);
+
+            category = new Category()
+            {
+                Id = 7,
+                Name = "Gaming Peripherals"
+            };
+            categories.Add(category);
+
             return categories.ToArray();
+
         }
     }
 }

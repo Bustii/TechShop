@@ -6,7 +6,9 @@
     using TechShop.Data;
     using TechShop.Data.Models;
     using TechShop.Services.Data.Interfaces;
+    using TechShop.Services.Data.Models;
     using TechShop.Web.ViewModels.Category;
+    using TechShop.Web.ViewModels.Enums;
 
     public class CategoryService : ICategoryService
     {
@@ -47,6 +49,53 @@
             return allCategories;
         }
 
+        public async Task<AllCategoriesFilteredServiceModel> AllCategoriesQueryAsync(AllCategoriesQueryModel queryModel)
+        {
+            IQueryable<Category> categoryQuery = dbContext
+                .Categories
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(queryModel.SearchString))
+            {
+                string wildCard = $"%{queryModel.SearchString.ToLower()}%";
+
+                categoryQuery = categoryQuery
+                    .Where(h => EF.Functions.Like(h.Name, wildCard));
+            }
+
+            categoryQuery = queryModel.CategorySorting switch
+            {
+                CategorySorting.NameAscending => categoryQuery
+                    .OrderBy(c => c.Name),
+                CategorySorting.NameDescending => categoryQuery
+                        .OrderByDescending(c => c.Name),
+                CategorySorting.IdAscending => categoryQuery
+                    .OrderBy(c => c.Id),
+                CategorySorting.IdDescending => categoryQuery
+                    .OrderByDescending(c => c.Id),
+                _ => categoryQuery
+                    .OrderBy(c => c.Id)
+            };
+
+            IEnumerable<CategoryDetailsViewModel> allCategories = await categoryQuery
+                    .Where(h => h.IsDeleted)
+                    .Skip((queryModel.CurrentPage - 1) * queryModel.CategoriesPerPage)
+                    .Take(queryModel.CategoriesPerPage)
+                    .Select(h => new CategoryDetailsViewModel
+                    {
+                        Id = h.Id,
+                        Name = h.Name,
+                    })
+                    .ToArrayAsync();
+            int totalCategories = categoryQuery.Count();
+
+            return new AllCategoriesFilteredServiceModel()
+            {
+                TotalCategoriesCount = totalCategories,
+                Categories = allCategories
+            };
+        }
+
         public async Task<IEnumerable<string>> AllCategoryNamesAsync()
         {
             IEnumerable<string> allNames = await dbContext
@@ -55,6 +104,32 @@
                 .ToArrayAsync();
 
             return allNames;
+        }
+
+        public async Task CreateNewCategoryAsync(NewCategoryViewModel categoryModel)
+        {
+            Category category = new Category()
+            {
+                Name = categoryModel.Name
+            };
+
+            await dbContext.Categories.AddAsync(category);
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task EditCategoryAsync(int cateogryId, NewCategoryViewModel categoryModel)
+        {
+            var currCategory = await dbContext
+                .Categories
+                .FindAsync(cateogryId);
+
+            if (currCategory != null)
+            {
+                currCategory.Name = categoryModel.Name;
+                currCategory.IsDeleted = false;
+
+                await dbContext.SaveChangesAsync();
+            }
         }
 
         public async Task<bool> ExistsByIdAsync(int id)
@@ -79,5 +154,16 @@
             };
             return viewModel;
         }
+
+        public async Task<bool> IsCategoryExistByNameAsync(string categoryName)
+        {
+            var isExist = await dbContext
+                .Categories
+                .Where(c => c.IsDeleted == false)
+                .AnyAsync(c => c.Name == categoryName);
+
+            return isExist;
+        }
     }
 }
+

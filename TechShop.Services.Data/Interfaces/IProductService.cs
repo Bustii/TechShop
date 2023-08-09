@@ -25,5 +25,7 @@
         Task<ProductPreDeleteDetailsViewModel> GetProductForDeleteByIdAsync(string productId);
 
         Task DeleteProductByIdAsync(string productId);
+
+        Task TurnActivityAsync(int productId);
     }
 }

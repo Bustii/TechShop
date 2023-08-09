@@ -11,7 +11,6 @@
     public class ProductController : Controller
     {
         private readonly ICategoryService categoryService;
-        //private readonly ISellerService sellerService;
         private readonly IProductService productService;
 
         public ProductController(ICategoryService categoryService, IProductService productService)

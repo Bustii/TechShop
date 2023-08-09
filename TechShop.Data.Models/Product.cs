@@ -1,17 +1,23 @@
 ﻿namespace TechShop.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using static Common.EntityValidationsConstants.Product;
 
     public class Product
     {
         public Product()
         {
-            this.Id = Guid.NewGuid();
+            IsActive = true;
+
+            CreatedOn = DateTime.Now;
+            LastEdit = DateTime.Now;
+
+            UserProducts = new HashSet<ApplicationUserProduct>();
         }
 
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [MaxLength(NameMaxLength)]
@@ -33,15 +39,18 @@
         public decimal Price { get; set; }
 
         public DateTime CreatedOn { get; set; }
+
+        public DateTime LastEdit { get; set; }
+
         public bool IsActive { get; set; }
 
+        [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }
 
+        [Required]
         public virtual Category Category { get; set; } = null!;
 
-        public Guid? BuyerId { get; set; }
 
-        public virtual User? Buyer { get; set; }
-
+        public virtual ICollection<ApplicationUserProduct> UserProducts { get; set; } = null!;
     }
 }

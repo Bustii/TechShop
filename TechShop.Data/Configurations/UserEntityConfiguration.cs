@@ -4,17 +4,11 @@
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using TechShop.Data.Models;
 
-    public class UserEntityConfiguration : IEntityTypeConfiguration<User>
+    public class UserEntityConfiguration : IEntityTypeConfiguration<ApplicationUserProduct>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<ApplicationUserProduct> builder)
         {
-            builder
-                .Property(u => u.FirstName)
-                .HasDefaultValue("Ventsislav");
-
-            builder
-                .Property(u => u.LastName)
-                .HasDefaultValue("Minev");
+            builder.HasKey(u => new { u.UserId, u.ProductId });
         }
     }
 }

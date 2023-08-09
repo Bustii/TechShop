@@ -194,7 +194,6 @@
             Product product = await dbContext
                  .Products
                  .Include(h => h.Category)
-                 //.ThenInclude(a => a.Name)
                  .Where(h => h.IsActive)
                  .FirstAsync(h => h.Id.ToString() == productId);
 
@@ -209,6 +208,18 @@
             };
         }
 
+        public async Task TurnActivityAsync(int productId)
+        {
+            Product currentProduct = await dbContext
+                .Products
+                .Where(i => i.Id == productId)
+                .FirstAsync();
+
+            currentProduct.IsActive = !currentProduct.IsActive;
+
+            await dbContext.SaveChangesAsync();
+        }
+
         public async Task<IEnumerable<IndexViewModel>> LastFiveProductsAsync()
         {
             IEnumerable<IndexViewModel> lastFiveProducts = await this.dbContext
@@ -216,7 +227,7 @@
                 .OrderByDescending(p => p.Id)
                 .Select(p => new IndexViewModel()
                 {
-                    Id = p.Id.ToString(),
+                    Id = p.Id,
                     Name = p.Name,
                     Model = p.Model,
                     ImageUrl = p.ImageUrl

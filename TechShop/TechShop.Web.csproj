@@ -17,6 +17,10 @@
   <ItemGroup>
     <None Include="Properties\serviceDependencies.local.json.user" />
     <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Order\Checkout.cshtml" />
+    <None Include="Views\Order\Confirmed.cshtml" />
+    <None Include="Views\Order\OrderDetails.cshtml" />
+    <None Include="Views\Order\OrderHistory.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\Shared\_LoginPartial.cshtml" />

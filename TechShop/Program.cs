@@ -22,7 +22,7 @@ namespace TechShop.Web
             builder.Services.AddDbContext<TechShopDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
-            builder.Services.AddDefaultIdentity<User>(options =>
+            builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
             {
                 options.SignIn.RequireConfirmedAccount =
                     builder.Configuration.GetValue<bool>("Identity:SignIn:RequireConfirmedAccount");

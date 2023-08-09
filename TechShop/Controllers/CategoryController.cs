@@ -7,6 +7,7 @@
     using ViewModels.Category;
     using Infrastructure.Extensions;
 
+    using static Common.NotificationMessagesConstants;
     [Authorize]
     public class CategoryController : Controller
     {
@@ -21,10 +22,19 @@
         [HttpGet]
         public async Task<IActionResult> All()
         {
-            IEnumerable<AllCategoriesViewModel> viewModel =
+            try
+            {
+                IEnumerable<AllCategoriesViewModel> viewModel =
                 await categoryService.AllCategoriesForListAsync();
 
-            return View(viewModel);
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Something get wrong! Please try again later.";
+                return RedirectToAction("Index", "Home");
+            }
+
         }
 
         [HttpGet]
@@ -38,12 +48,22 @@
 
             CategoryDetailsViewModel viewModel =
                 await categoryService.GetDetailsByIdAsync(id);
+
             if (viewModel.GetUrlInformation() != information)
             {
                 return NotFound();
             }
 
             return View(viewModel);
+        }
+
+        private IActionResult GenerealCategoryError()
+        {
+            TempData[ErrorMessage] = "Something get wrong! Please try again later";
+
+            var previousUrl = Request.Headers["Referer"].ToString();
+
+            return Redirect(previousUrl);
         }
     }
 }

@@ -26,6 +26,9 @@
                asp-route-id="@Model.Id">Edit</a>
             <a asp-controller="Product" asp-action="Delete" asp-route-id="@Model.Id"
                class="btn btn-danger">Delete</a>
+            <form asp-controller="Cart" asp-action="Add" asp-route-id="@Model.Id">
+                <button type="submit" class="btn btn-success">Buy</></button>
+            </form>
         </div>
     </div>
 </div>
