@@ -50,33 +50,22 @@ else
                         @if (item.Quantity <= 1)
                         {
                             <form asp-controller="Cart" asp-action="Decrease" asp-route-id="@item.ProductId" method="post" class="d-inline-block">
-                                <button type="submit" class="btn btn-sm" disabled>
-                                    <i class="fas fa-chevron-left fa-lg" style="color: #0771a6;"></i>
-                                </button>
+                                <button type="submit" class="btn btn-sm">-</button>
                             </form>
                         }
                         else
                         {
                             <form asp-controller="Cart" asp-action="Decrease" asp-route-id="@item.ProductId" method="post" class="d-inline-block">
-                                <button type="submit" class="btn btn-sm">
-                                    <i class="fas fa-chevron-left fa-lg" style="color: #0771a6;"></i>
-                                </button>
+                                <button type="submit" class="btn btn-sm">-</button>
                             </form>
                         }
                         <span>@item.Quantity</span>
                         <form asp-controller="Cart" asp-action="Increase" asp-route-id="@item.ProductId" method="post" class="d-inline-block">
-                            <button type="submit" class="btn btn-sm">
-                                <i class="fas fa-chevron-right fa-lg" style="color: #0771a6;"></i>
-                            </button>
-                        </form>
-
+                            <button type="submit" class="btn btn-sm">+</button> </form>
                     </td>
                     <td>
-                        <form asp-controller="Cart" asp-action="Remove" asp-route-id="@item.ProductId" method="post" class="me-2 mb-2">
-                            <button type="submit" class="btn btn-sm ms-2">
-                                <i class="far fa-times-circle fa-lg" style="color: #700000;"></i>
-                            </button>
-                        </form>
+                         <form asp-controller="Cart" asp-action="Remove" asp-route-id="@item.ProductId">
+                             <button type="submit"  class="btn btn-danger">Delete</button></form>
                     </td>
                     <td>$@item.TotalPrice.ToString("f2")</td>
                 </tr>
