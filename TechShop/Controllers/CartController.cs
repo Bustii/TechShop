@@ -55,6 +55,8 @@
 
                 var previousUrl = Request.Headers["Referer"].ToString();
 
+                TempData[SuccessMessage] = "You have successfully added the product to the cart!";
+
                 return Redirect(previousUrl);
             }
             catch (Exception)
