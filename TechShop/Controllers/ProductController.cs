@@ -62,6 +62,14 @@
         [HttpGet]
         public async Task<IActionResult> Add()
         {
+            bool isUserAdmin = User.IsInRole("Admin");
+            if (!isUserAdmin)
+            {
+                TempData[ErrorMessage] = "You are not authorized to add new products!";
+
+                return RedirectToAction("All", "Product");
+            }
+
             try
             {
                 ProductFormModel formModel = new ProductFormModel()
@@ -79,6 +87,13 @@
         [HttpPost]
         public async Task<IActionResult> Add(ProductFormModel productModel)
         {
+            bool isUserAdmin = User.IsInRole("Admin");
+            if (!isUserAdmin)
+            {
+                TempData[ErrorMessage] = "You are not authorized to add new products!";
+
+                return RedirectToAction("All", "Product");
+            }
 
             bool productCategoryExists =
                 await categoryService.ExistsByIdAsync(productModel.CategoryId);
@@ -114,6 +129,14 @@
         [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
+            bool isUserAdmin = User.IsInRole("Admin");
+            if (!isUserAdmin)
+            {
+                TempData[ErrorMessage] = "You are not authorized to edit products!";
+
+                return RedirectToAction("All", "Product");
+            }
+
             bool productExists = await productService
                 .ExistsByIdAsync(id);
             if (!productExists)
@@ -140,6 +163,14 @@
         [HttpPost]
         public async Task<IActionResult> Edit(string id, ProductFormModel productModel)
         {
+            bool isUserAdmin = User.IsInRole("Admin");
+            if (!isUserAdmin)
+            {
+                TempData[ErrorMessage] = "You are not authorized to edit products!";
+
+                return RedirectToAction("All", "Product");
+            }
+
             if (!ModelState.IsValid)
             {
                 productModel.Categories = await categoryService.AllCategoriesAsync();
@@ -185,6 +216,14 @@
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
+            bool isUserAdmin = User.IsInRole("Admin");
+            if (!isUserAdmin)
+            {
+                TempData[ErrorMessage] = "You are not authorized to delete products!";
+
+                return RedirectToAction("All", "Product");
+            }
+
             bool productExists = await productService
                 .ExistsByIdAsync(id);
             if (!productExists)
@@ -211,6 +250,14 @@
         [HttpPost]
         public async Task<IActionResult> Delete(string id, ProductPreDeleteDetailsViewModel productModel)
         {
+            bool isUserAdmin = User.IsInRole("Admin");
+            if (!isUserAdmin)
+            {
+                TempData[ErrorMessage] = "You are not authorized to delete products!";
+
+                return RedirectToAction("All", "Product");
+            }
+
             bool productExists = await productService
                 .ExistsByIdAsync(id);
             if (!productExists)

@@ -18,6 +18,15 @@
             this.dbContext = context;
         }
 
+        public async Task<bool> UserExistsByIdAsync(string userId)
+        {
+            bool result = await dbContext
+                .Users
+                .AnyAsync(a => a.Id.ToString() == userId);
+
+            return result;
+        }
+
         public async Task<AllUsersFilteredServiceModel> AllUsersQueryAsync(AllUsersQueryModel queryModel)
         {
             IQueryable<ApplicationUser> userQuery = dbContext

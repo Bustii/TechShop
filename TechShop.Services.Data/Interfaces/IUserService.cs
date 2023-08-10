@@ -20,5 +20,7 @@
         Task SoftDeleteUserAsync(string userId);
 
         Task ReverseIsAdministratorAsync(string userId);
+
+        Task<bool> UserExistsByIdAsync(string userId);
     }
 }
