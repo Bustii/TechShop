@@ -5,7 +5,10 @@
     using TechShop.Services.Data.Interfaces;
     using TechShop.Services.Data.Models;
     using TechShop.Web.ViewModels.Products;
+
     using static TechShop.Common.NotificationMessagesConstants;
+    using static TechShop.Common.GeneralApplicationConstans;
+
 
     [Authorize]
     public class ProductController : Controller
@@ -62,7 +65,7 @@
         [HttpGet]
         public async Task<IActionResult> Add()
         {
-            bool isUserAdmin = User.IsInRole("Admin");
+            bool isUserAdmin = User.IsInRole(AdminRoleName);
             if (!isUserAdmin)
             {
                 TempData[ErrorMessage] = "You are not authorized to add new products!";
@@ -87,7 +90,7 @@
         [HttpPost]
         public async Task<IActionResult> Add(ProductFormModel productModel)
         {
-            bool isUserAdmin = User.IsInRole("Admin");
+            bool isUserAdmin = User.IsInRole(AdminRoleName);
             if (!isUserAdmin)
             {
                 TempData[ErrorMessage] = "You are not authorized to add new products!";
@@ -129,7 +132,7 @@
         [HttpGet]
         public async Task<IActionResult> Edit(string id)
         {
-            bool isUserAdmin = User.IsInRole("Admin");
+            bool isUserAdmin = User.IsInRole(AdminRoleName);
             if (!isUserAdmin)
             {
                 TempData[ErrorMessage] = "You are not authorized to edit products!";
@@ -163,7 +166,7 @@
         [HttpPost]
         public async Task<IActionResult> Edit(string id, ProductFormModel productModel)
         {
-            bool isUserAdmin = User.IsInRole("Admin");
+            bool isUserAdmin = User.IsInRole(AdminRoleName);
             if (!isUserAdmin)
             {
                 TempData[ErrorMessage] = "You are not authorized to edit products!";
@@ -216,7 +219,7 @@
         [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
-            bool isUserAdmin = User.IsInRole("Admin");
+            bool isUserAdmin = User.IsInRole(AdminRoleName);
             if (!isUserAdmin)
             {
                 TempData[ErrorMessage] = "You are not authorized to delete products!";
@@ -250,7 +253,7 @@
         [HttpPost]
         public async Task<IActionResult> Delete(string id, ProductPreDeleteDetailsViewModel productModel)
         {
-            bool isUserAdmin = User.IsInRole("Admin");
+            bool isUserAdmin = User.IsInRole(AdminRoleName);
             if (!isUserAdmin)
             {
                 TempData[ErrorMessage] = "You are not authorized to delete products!";
