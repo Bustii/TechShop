@@ -5,6 +5,8 @@
     using TechShop.Services.Data.Interfaces;
     using TechShop.Web.ViewModels.Home;
 
+    using static TechShop.Common.GeneralApplicationConstans;
+
     public class HomeController : Controller
     {
         private readonly IProductService productService;
@@ -16,12 +18,15 @@
 
         public async Task<IActionResult> Index()
         {
+            if (this.User.IsInRole(AdminRoleName))
+            {
+                return this.RedirectToAction("Index", "Admin", new { Area = AdminAreaName });
+            }
+
             IEnumerable<IndexViewModel> viewModels =
                 await this.productService.LastFiveProductsAsync();
 
             return View(viewModels);
-
-            return Ok();
         }
       
 

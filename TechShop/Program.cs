@@ -1,6 +1,7 @@
 namespace TechShop.Web
 {
     using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
 
     using TechShop.Data;
@@ -8,6 +9,9 @@ namespace TechShop.Web
     using TechShop.Services.Data;
     using TechShop.Services.Data.Interfaces;
     using TechShop.Web.Infrastructure.Extensions;
+    using TechShop.Web.Infrastructure.ModelBinders;
+
+    using static Common.GeneralApplicationConstans;
 
     public class Program
     {
@@ -39,14 +43,19 @@ namespace TechShop.Web
                 .AddEntityFrameworkStores<TechShopDbContext>();
 
             builder.Services.AddApplicationServices(typeof(IProductService));
-           // builder.Services.AddTransient<IProductService, ProductService>();
 
             builder.Services.ConfigureApplicationCookie(cfg =>
             {
                 cfg.LoginPath = "/User/Login";
             });
 
-            builder.Services.AddControllersWithViews();
+            builder.Services
+                .AddControllersWithViews()
+                .AddMvcOptions(options =>
+                {
+                    options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
+                    options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
+                });
 
             WebApplication app = builder.Build();
 
@@ -72,8 +81,27 @@ namespace TechShop.Web
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.MapDefaultControllerRoute();
-            app.MapRazorPages();
+            if (app.Environment.IsDevelopment())
+            {
+                app.SeedAdministrator(AdminEmail);
+            }
+
+            app.UseEndpoints(config =>
+            {
+                config.MapControllerRoute(
+                    name: "areas",
+                    pattern: "/{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+
+                config.MapControllerRoute(
+                    name: "ProtectingUrlRoute",
+                    pattern: "/{controller}/{action}/{id}/{information}",
+                    defaults: new { Controller = "Category", Action = "Details" });
+
+                config.MapDefaultControllerRoute();
+
+                config.MapRazorPages();
+            });
 
             app.Run();
         }

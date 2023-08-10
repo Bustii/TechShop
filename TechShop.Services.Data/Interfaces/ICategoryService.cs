@@ -23,5 +23,9 @@
         Task EditCategoryAsync(int cateogryId, NewCategoryViewModel categoryModel);
 
         Task CreateNewCategoryAsync(NewCategoryViewModel categoryModel);
+
+        Task<NewCategoryViewModel> GetCategoryByIdAsync(int categoryId);
+
+        Task SoftDeleteCategoryAsync(int categoryId);
     }
 }

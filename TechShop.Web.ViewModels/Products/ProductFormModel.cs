@@ -34,7 +34,9 @@
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
 
-        public IEnumerable<ProductSelectCategoryFormModel> Categories { get; set; }
+        public bool IsActive { get; set; }
+
+        public IEnumerable<ProductSelectCategoryFormModel> Categories { get; set; } = new HashSet<ProductSelectCategoryFormModel>();
 
     }
 }

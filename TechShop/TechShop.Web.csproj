@@ -15,6 +15,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Admin\Views\Admin\Categories.cshtml" />
+    <None Include="Areas\Admin\Views\Admin\Products.cshtml" />
+    <None Include="Areas\Admin\Views\Admin\Users.cshtml" />
+    <None Include="Areas\Admin\Views\Category\Add.cshtml" />
+    <None Include="Areas\Admin\Views\Category\Edit.cshtml" />
+    <None Include="Areas\Admin\Views\Product\Add.cshtml" />
+    <None Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <None Include="Areas\Admin\Views\_ViewImports.cshtml" />
+    <None Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <None Include="Properties\serviceDependencies.local.json.user" />
     <None Include="Views\Home\Index.cshtml" />
     <None Include="Views\Order\Checkout.cshtml" />

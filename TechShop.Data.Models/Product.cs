@@ -9,6 +9,7 @@
         public Product()
         {
             IsActive = true;
+            IsDeleted = false;
 
             CreatedOn = DateTime.Now;
             LastEdit = DateTime.Now;
@@ -43,6 +44,8 @@
         public DateTime LastEdit { get; set; }
 
         public bool IsActive { get; set; }
+
+        public bool IsDeleted { get; set; }
 
         [ForeignKey(nameof(Category))]
         public int CategoryId { get; set; }

@@ -6,6 +6,7 @@
     using TechShop.Data.Models;
     using TechShop.Services.Data.Interfaces;
     using TechShop.Services.Data.Models;
+    using TechShop.Web.ViewModels.Category;
     using TechShop.Web.ViewModels.Enums;
     using TechShop.Web.ViewModels.Home;
     using TechShop.Web.ViewModels.Products;
@@ -236,6 +237,70 @@
                 .ToListAsync();
 
             return lastFiveProducts;
+        }
+
+        public async Task<ProductFormModel> GetItemByIdAsync(int productId)
+        {
+            var categories = await dbContext
+                .Categories
+                .Select(c => new CategoryDetailsViewModel()
+                {
+                    Id = c.Id,
+                    Name = c.Name
+                })
+                .ToListAsync();
+
+
+            var currentProduct = await dbContext
+                .Products
+                .Where(i => i.Id == productId)
+                .Select(i => new ProductFormModel()
+                {
+                    Name = i.Name,
+                    Model = i.Model,
+                    Description = i.Description,
+                    Price = i.Price,
+                    ImageUrl = i.ImageUrl,
+                    CategoryId = i.CategoryId,
+                    IsActive = i.IsActive
+                })
+                .FirstAsync();
+
+            return currentProduct;
+        }
+
+        public async Task SoftDeleteItemAsync(int productId)
+        {
+            Product product = await dbContext
+                .Products
+                .Where(i => !i.IsDeleted && i.Id == productId)
+                .FirstAsync();
+
+
+            product.IsActive = false;
+            product.IsDeleted = true;
+
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task EditProductAsync(int id, ProductFormModel productModel)
+        {
+            var currItem = await dbContext
+                .Products
+                .FindAsync(id);
+
+            if (currItem != null)
+            {
+                currItem.Name = productModel.Name;
+                currItem.Model = productModel.Model;
+                currItem.Description = productModel.Description;
+                currItem.Price = productModel.Price;
+                currItem.ImageUrl = productModel.ImageUrl;
+                currItem.CategoryId = productModel.CategoryId;
+                currItem.LastEdit = DateTime.UtcNow;
+
+                await dbContext.SaveChangesAsync();
+            }
         }
     }
 }

@@ -14,6 +14,8 @@
             public string ImageUrl { get; set; } = null!;
 
             [Display(Name = "Price")]
-            public decimal Price { get; set; }       
+            public decimal Price { get; set; }
+
+            public bool? IsActive { get; set; }
     }
 }

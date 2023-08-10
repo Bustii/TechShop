@@ -22,10 +22,15 @@
 
         Task EditProductByIdAndFormModelAsync(string productId, ProductFormModel productModel);
 
+        Task EditProductAsync(int id, ProductFormModel productModel);
+
         Task<ProductPreDeleteDetailsViewModel> GetProductForDeleteByIdAsync(string productId);
 
         Task DeleteProductByIdAsync(string productId);
 
         Task TurnActivityAsync(int productId);
+
+        Task<ProductFormModel> GetItemByIdAsync(int productId);
+        Task SoftDeleteItemAsync(int productId);
     }
 }

@@ -141,6 +141,20 @@
             return result;
         }
 
+        public async Task<NewCategoryViewModel> GetCategoryByIdAsync(int categoryId)
+        {
+            var category = await dbContext
+                .Categories
+                .Where(c => c.Id == categoryId && c.IsDeleted == false)
+                .Select(c => new NewCategoryViewModel()
+                {
+                    Name = c.Name
+                })
+                .FirstAsync();
+
+            return category;
+        }
+
         public async Task<CategoryDetailsViewModel> GetDetailsByIdAsync(int id)
         {
             Category category = await dbContext
@@ -163,6 +177,18 @@
                 .AnyAsync(c => c.Name == categoryName);
 
             return isExist;
+        }
+
+        public async Task SoftDeleteCategoryAsync(int categoryId)
+        {
+            Category category = await dbContext
+                .Categories
+                .Where(c => c.Id == categoryId)
+                .FirstAsync();
+
+            category.IsDeleted = true;
+
+            await dbContext.SaveChangesAsync();
         }
     }
 }
