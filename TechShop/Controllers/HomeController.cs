@@ -20,7 +20,7 @@
         {
             if (this.User.IsInRole(AdminRoleName))
             {
-                return this.RedirectToAction("Index", "Admin", new { Area = AdminAreaName });
+                return this.RedirectToAction("Products", "Admin", new { Area = AdminAreaName });
             }
 
             IEnumerable<IndexViewModel> viewModels =

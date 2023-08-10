@@ -30,10 +30,6 @@
             this.userManager = userManager;
 
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         public async Task<IActionResult> Products([FromQuery] AllProductsQueryModel queryModel)
         {
