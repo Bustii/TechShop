@@ -103,7 +103,7 @@
                 TempData[SuccessMessage] = "You deleted category successfully.";
                 return RedirectToAction("Categories", "Admin");
             }
-            catch(Exception)
+            catch (Exception)
             {
                 return GeneralErrorMessage();
             }
