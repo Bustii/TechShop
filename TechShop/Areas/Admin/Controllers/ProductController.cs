@@ -5,6 +5,7 @@
     using TechShop.Web.ViewModels.Products;
 
     using static Common.NotificationMessagesConstants;
+    using static Common.GeneralApplicationConstans;
 
     public class ProductController : BaseController
     {
@@ -73,22 +74,42 @@
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(string id)
         {
+            bool isUserAdmin = User.IsInRole(AdminRoleName);
+            if (!isUserAdmin)
+            {
+                TempData[ErrorMessage] = "You are not authorized to edit products!";
+
+                return RedirectToAction("All", "Product");
+            }
+
+            bool productExists = await productService
+                .ExistsByIdAsync(id);
+            if (!productExists)
+            {
+                TempData[ErrorMessage] = "The product with this id does not exist!";
+
+                return RedirectToAction("All", "Product");
+            }
+
             try
             {
-                var cuurrentProduct = await productService.GetItemByIdAsync(id);
-                return View(cuurrentProduct);
+                ProductFormModel productModel = await productService
+                    .GetProductForEditByIdAsync(id);
+                productModel.Categories = await categoryService.AllCategoriesAsync();
+
+                return View(productModel);
             }
             catch (Exception)
             {
-                return GeneralErrorMessage();
+                return GeneralError();
             }
 
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, ProductFormModel productModel)
+        public async Task<IActionResult> Edit(string id, ProductFormModel productModel)
         {
             bool isCategoryExist = await categoryService
                 .ExistsByIdAsync(productModel.CategoryId);
@@ -107,7 +128,7 @@
 
             try
             {
-                await productService.EditProductAsync(id, productModel);
+                await productService.EditProductByIdAndFormModelAsync(id, productModel);
             }
             catch (Exception)
             {
@@ -138,6 +159,14 @@
             TempData[ErrorMessage] = "An unexpected error occurred! Please, try again.";
 
             return RedirectToAction("Products", "Admin");
+        }
+
+        private IActionResult GeneralError()
+        {
+            TempData[ErrorMessage] =
+                "Unexpected error occurred! Please try again later or contact administrator";
+
+            return RedirectToAction("All", "Product");
         }
     }
 }

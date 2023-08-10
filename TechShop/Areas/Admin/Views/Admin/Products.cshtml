@@ -64,10 +64,9 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Title</th>
+                    <th>Name</th>
+                    <th>Model</th>
                     <th>Price</th>
-                    <th>Image</th>
-                    <th>Active</th>
                     <th>Actions</th>
                     <th>Delete</th>
                 </tr>
@@ -78,14 +77,9 @@
                     <tr>
                         <td>@product.Id</td>
                         <td>@product.Name</td>
-                        <td>$@product.Price</td>
+                        <td>@product.Model</td>
+                        <td>$@product.Price</td>                        
                         <form method="post">
-                        <td>
-                            <button asp-controller="Admin" asp-action="Enable" asp-route-id="@product.Id" type="submit"
-                                class="btn btn-sm @((bool)product.IsActive! ? "btn btn-outline-secondary" : "btn-success")">
-                                    @(((bool)product.IsActive! ? "Disable" : "Enable"))
-                            </button>
-                        </td>
                         </form>
                         <td>
                             <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-warning ">Edit</a>

@@ -9,6 +9,8 @@
     using TechShop.Web.ViewModels.User;
 
     using static Common.NotificationMessagesConstants;
+    using static Common.GeneralApplicationConstans;
+
     public class AdminController : BaseController
     {
         private readonly IProductService productService;
@@ -90,17 +92,17 @@
         {
             var user = await userManager.FindByIdAsync(userId);
             var roles = await userManager.GetRolesAsync(user);
-            bool isChecked = roles.Any(r => r.Contains("Administrator"));
+            bool isChecked = roles.Any(r => r.Contains(AdminRoleName));
 
             try
             {
                 if (!isChecked)
                 {
-                    await userManager.AddToRoleAsync(user, "Administrator");
+                    await userManager.AddToRoleAsync(user, AdminRoleName);
                 }
                 else if (isChecked)
                 {
-                    await userManager.RemoveFromRoleAsync(user, "Administrator");
+                    await userManager.RemoveFromRoleAsync(user, AdminRoleName);
                 }
 
                 await userService.ReverseIsAdministratorAsync(userId);
@@ -120,7 +122,7 @@
                 await productService.TurnActivityAsync(id);
                 ProductFormModel currentItem = await productService.GetItemByIdAsync(id);
 
-                TempData[SuccessMessage] = currentItem.IsActive ? "You Deactivated the product successfully." : "You Actived the product successfully.";
+                TempData[SuccessMessage] = currentItem.IsActive ? "You Deactivated the product successfully." : "You Activated the product successfully.";
 
                 return RedirectToAction("Products", "Admin");
             }

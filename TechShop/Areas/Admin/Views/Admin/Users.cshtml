@@ -57,7 +57,7 @@
                     <th>CreatedOn</th>
                     <th>Username</th>
                     <th>Email</th>
-                    <th>Moderator</th>
+                    <th>Administrator</th>
                     <th>Delete</th>
                 </tr>
             </thead>
@@ -74,7 +74,7 @@
                             {
                                 <form method="post" asp-action="SetRole" asp-area="Admin" asp-controller="Admin" class="toggle-moderator-form">
                                     <input type="hidden" name="userId" value="@user.Id" />
-                                    <input type="hidden" name="isModerator" value="@user.IsAdministrator" />
+                                    <input type="hidden" name="IsAdministrator" value="@user.IsAdministrator" />
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" data-user-id="@user.Id" @(user.IsAdministrator ? "checked" : "") />
                                     </div>
@@ -84,7 +84,7 @@
                             {
                                 <form method="post" asp-action="SetRole" asp-area="Admin" asp-controller="Admin" class="toggle-moderator-form">
                                     <input type="hidden" name="userId" value="@user.Id" />
-                                    <input type="hidden" name="isModerator" value="@user.IsAdministrator" />
+                                    <input type="hidden" name="isAdministrator" value="@user.IsAdministrator" />
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" data-user-id="@user.Id" disabled @(user.IsAdministrator ? "checked" : "") />
                                     </div>

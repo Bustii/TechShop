@@ -14,6 +14,23 @@
             this.categoryService = categoryService;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> All()
+        {
+            try
+            {
+                IEnumerable<AllCategoriesViewModel> viewModel =
+                await categoryService.AllCategoriesForListAsync();
+
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                TempData[ErrorMessage] = "Something get wrong! Please try again later.";
+                return RedirectToAction("Index", "Home");
+            }
+
+        }
 
         [HttpGet]
         public IActionResult Add()

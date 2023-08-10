@@ -146,7 +146,7 @@
             {
                 TempData[ErrorMessage] = "The product with this id does not exist!";
 
-                return RedirectToAction("All", "Product");
+                return RedirectToAction("Products", "Admin");
             }
 
             try
@@ -188,7 +188,7 @@
             {
                 TempData[ErrorMessage] = "The product with this id does not exist!";
 
-                return RedirectToAction("All", "Product");
+                return RedirectToAction("Products", "Admin");
             }
 
             try
@@ -205,7 +205,7 @@
             }
 
             TempData[SuccessMessage] = "Product was edited successfully!";
-            return RedirectToAction("Details", "Product", new { id });
+            return RedirectToAction("Products", "Admin", new { id });
         }
 
         private IActionResult GeneralError()
