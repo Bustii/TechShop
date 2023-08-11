@@ -8,6 +8,8 @@
     {
         Task<IEnumerable<IndexViewModel>> LastFiveProductsAsync();
 
+        Task<IEnumerable<IndexViewModel>> GetAllIActiveProductsAsync();
+
         Task<string> CreateAndReturnIdAsync(ProductFormModel formModel);
 
         Task<IEnumerable<ProductsAllViewModel>> AllProductsAsync(string productId);
@@ -30,7 +32,9 @@
 
         Task TurnActivityAsync(int productId);
 
-        Task<ProductFormModel> GetItemByIdAsync(int productId);
-        Task SoftDeleteItemAsync(int productId);
+        Task<ProductFormModel> GetProductByIdAsync(int productId);
+        Task SoftDeleteProductAsync(int productId);
+
+        Task<IEnumerable<IndexViewModel>> AllProductsByChoosenCategoryAsync(string name);
     }
 }

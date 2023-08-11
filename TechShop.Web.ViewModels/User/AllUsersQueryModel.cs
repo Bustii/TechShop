@@ -1,7 +1,7 @@
 ﻿namespace TechShop.Web.ViewModels.User
 {
-    using PetShop.Web.ViewModels.User;
-    using PetShop.Web.ViewModels.User.Enums;
+    using TechShop.Web.ViewModels.User;
+    using TechShop.Web.ViewModels.User.Enums;
     using System.ComponentModel.DataAnnotations;
 
     using static TechShop.Common.GeneralApplicationConstans;

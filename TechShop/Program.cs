@@ -42,6 +42,9 @@ namespace TechShop.Web
                 .AddRoles<IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<TechShopDbContext>();
 
+            builder.Services.AddMemoryCache();
+            builder.Services.AddSession();
+
             builder.Services.AddApplicationServices(typeof(IProductService));
 
             builder.Services.ConfigureApplicationCookie(cfg =>

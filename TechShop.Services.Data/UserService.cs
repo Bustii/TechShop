@@ -1,7 +1,7 @@
 ﻿namespace TechShop.Services.Data
 {
     using Microsoft.EntityFrameworkCore;
-    using PetShop.Web.ViewModels.User.Enums;
+    using TechShop.Web.ViewModels.User.Enums;
     using System.Collections.Generic;
     using TechShop.Data;
     using TechShop.Data.Models;

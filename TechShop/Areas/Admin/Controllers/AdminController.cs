@@ -116,7 +116,7 @@
             try
             {
                 await productService.TurnActivityAsync(id);
-                ProductFormModel currentItem = await productService.GetItemByIdAsync(id);
+                ProductFormModel currentItem = await productService.GetProductByIdAsync(id);
 
                 TempData[SuccessMessage] = currentItem.IsActive ? "You Deactivated the product successfully." : "You Activated the product successfully.";
 

@@ -144,7 +144,7 @@
         {
             try
             {
-                await productService.SoftDeleteItemAsync(id);
+                await productService.SoftDeleteProductAsync(id);
                 TempData[SuccessMessage] = "You deleted the product successfully.";
                 return RedirectToAction("Products", "Admin");
             }

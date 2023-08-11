@@ -33,7 +33,7 @@
                 .Where(c => c.Id.ToString() == cartId)
                 .FirstAsync();
 
-            CartItem? currentCartProduct;
+            CartProduct? currentCartProduct;
 
             if (!isProductExistInCart)
             {
@@ -44,7 +44,7 @@
 
                 if (currentCartProduct == null)
                 {
-                    currentCartProduct = new CartItem()
+                    currentCartProduct = new CartProduct()
                     {
                         ProductId = currentProduct.Id,
                         CartId = cart.Id
@@ -58,7 +58,7 @@
             {
                 currentCartProduct = await dbContext
                     .CartProducts
-                    .Where(ci => ci.ProductId == productId && ci.CartId.ToString() == cartId)
+                    .Where(c => c.ProductId == productId && c.CartId.ToString() == cartId)
                     .FirstAsync();
 
                 currentCartProduct.Quantity++;
@@ -85,7 +85,7 @@
             }
         }
 
-        public async Task DecreaseItemCountAsync(int productId, string cartId)
+        public async Task DecreaseProductCountAsync(int productId, string cartId)
         {
             var cartProduct = await dbContext
                 .CartProducts
@@ -157,7 +157,7 @@
             return cart;
         }
 
-        public async Task IncreaseItemCountAsync(int productId, string cartId)
+        public async Task IncreaseProductCountAsync(int productId, string cartId)
         {
             var cartItem = await dbContext
                 .CartProducts
@@ -169,7 +169,7 @@
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task RemoveItemFromCartAsync(int cartProductId, string cartId)
+        public async Task RemoveProductFromCartAsync(int cartProductId, string cartId)
         {
             var cartItem = await dbContext
                 .CartProducts

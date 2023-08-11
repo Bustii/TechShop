@@ -10,7 +10,7 @@
             Id = Guid.NewGuid();
             CreatedOn = DateTime.UtcNow;
 
-            CartProducts = new HashSet<CartItem>();
+            CartProducts = new HashSet<CartProduct>();
         }
 
         [Key]
@@ -24,6 +24,6 @@
 
         public DateTime CreatedOn { get; set; }
 
-        public virtual ICollection<CartItem> CartProducts { get; set; }
+        public virtual ICollection<CartProduct> CartProducts { get; set; }
     }
 }

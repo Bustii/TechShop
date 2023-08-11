@@ -239,7 +239,7 @@
             return lastFiveProducts;
         }
 
-        public async Task<ProductFormModel> GetItemByIdAsync(int productId)
+        public async Task<ProductFormModel> GetProductByIdAsync(int productId)
         {
             var categories = await dbContext
                 .Categories
@@ -269,7 +269,7 @@
             return currentProduct;
         }
 
-        public async Task SoftDeleteItemAsync(int productId)
+        public async Task SoftDeleteProductAsync(int productId)
         {
             Product product = await dbContext
                 .Products
@@ -301,6 +301,40 @@
 
                 await dbContext.SaveChangesAsync();
             }
+        }
+
+        public async Task<IEnumerable<IndexViewModel>> GetAllIActiveProductsAsync()
+        {
+            var allProducts = await dbContext
+                .Products
+                .Where(i => i.IsActive)
+                .Select(i => new IndexViewModel
+                {
+                    Id = i.Id,
+                    Name = i.Name,
+                    Model = i.Model,
+                    ImageUrl = i.ImageUrl
+                })
+                .ToArrayAsync();
+
+            return allProducts;
+        }
+
+        public async Task<IEnumerable<IndexViewModel>> AllProductsByChoosenCategoryAsync(string name)
+        {
+            var allItems = await dbContext
+               .Products
+               .Where(i => i.Category.Name == name && i.IsActive && i.Category.IsDeleted == false)
+               .Select(i => new IndexViewModel()
+               {
+                   Id = i.Id,
+                   Name = i.Name,
+                   Model = i.Model,
+                   ImageUrl = i.ImageUrl,
+               })
+               .ToArrayAsync();
+
+            return allItems;
         }
     }
 }

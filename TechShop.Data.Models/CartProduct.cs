@@ -3,9 +3,9 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.ComponentModel.DataAnnotations;
 
-    public class CartItem
+    public class CartProduct
     {
-        public CartItem()
+        public CartProduct()
         {
             Quantity = 1;
         }
