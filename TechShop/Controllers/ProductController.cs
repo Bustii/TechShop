@@ -205,7 +205,7 @@
             }
 
             TempData[SuccessMessage] = "Product was edited successfully!";
-            return RedirectToAction("Products", "Admin", new { id });
+            return RedirectToAction("All", "Product");
         }
 
         private IActionResult GeneralError()
