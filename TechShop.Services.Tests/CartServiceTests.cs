@@ -148,7 +148,7 @@
         [Test]
         public async Task RemoveProductFromCartAsync_ShouldRemoveProductFromCollection()
         {
-            int alreadyAddedCartIProductId = 11;
+            int alreadyAddedCartIProductId = 3;
 
             int before = dbContext
                .CartProducts
@@ -168,7 +168,7 @@
         [Test]
         public async Task IncreaseProductCountAsync_ShouldIncreaseQuantityOfProduct()
         {
-            int alreadyAddedCartProductId = 11;
+            int alreadyAddedCartProductId = 3;
 
             int before = dbContext
                 .CartProducts
@@ -190,7 +190,7 @@
         [Test]
         public async Task DecreaseProductCountAsync_ShouldDecreaseQuantityOfProduct()
         {
-            int alreadyAddedCartProductId = 11;
+            int alreadyAddedCartProductId = 3;
 
             int before = dbContext
                 .CartProducts

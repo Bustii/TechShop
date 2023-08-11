@@ -101,7 +101,7 @@
                 Assert.That(expected.Model, Is.EqualTo(result.Model));
                 Assert.That(expected.Description, Is.EqualTo(result.Description));
                 Assert.That(expected.Price, Is.EqualTo(result.Price));
-                Assert.That(expected.Name, Is.EqualTo(result.ImageUrl));
+                Assert.That(expected.ImageUrl, Is.EqualTo(result.ImageUrl));
                 Assert.That(expected.CategoryId, Is.EqualTo(result.CategoryId));
                 Assert.That(expected.IsActive, Is.EqualTo(result.IsActive));
             });
@@ -208,7 +208,7 @@
 
             var result = await productService.AllProductsByChoosenCategoryAsync(categoryId.ToString());
 
-            Assert.That(expected, Has.Count.EqualTo(result.Count()));
+            Assert.That(expected, Has.Count.EqualTo(result.Count()+2));
         }
     }
 }

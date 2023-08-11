@@ -17,32 +17,33 @@
         {
             User = new ApplicationUser()
             {
-                Id = Guid.Parse("BEF01BD8-5D5F-4087-9AA9-35A43E44F314"),
+                Id = Guid.Parse("A7497549-8106-4BCA-ADD8-7F755878BC67"),
+                FirstName = "Ventsislav",
+                LastName = "Minev",
                 UserName = "venncy961@abv.bg",
                 NormalizedUserName = "VENNCY961@ABV.BG",
                 Email = "venncy961@abv.bg",
                 NormalizedEmail = "VENNCY961@ABV.BG",
-                PasswordHash = "AQAAAAEAACcQAAAAEJ3wq0Qq48K4cAh7V4WSfAQWCOaxA6JSKNlWcaH7ke3eptu77olqAm21ImufxLgu0g==",
-                ConcurrencyStamp = "88da720d-b6b6-4dc1-8114-cf7c5c238843",
-                SecurityStamp = "J6ACAXB4OIGUHBB5OOUZIDWDAOZZSEGJ",
-                FirstName = "Ventsislav",
-                LastName = "Minev"
+                PasswordHash = "AQAAAAEAACcQAAAAEDFwfm2AXNjc/h3rywLqkNNBNidoN1kcsZXQvWZ3q8BFyPm6yslD+GNXAmCsSSnj9A==",
+                ConcurrencyStamp = "d8cd2173-7735-4725-9367-93d9daf2306e",
+                SecurityStamp = "UVLJSFX2M6AAPV3GVKFXOG5R24EWRVE4",
+                
             };
 
             dbContext.Users.Add(User);
 
             Cart = new Cart()
             {
-                Id = Guid.Parse("92df01a9-640b-4c42-bcaa-44ee936421d9"),
-                UserId = Guid.Parse("be8bc990-6051-4570-9d54-30e0639d09c5"),
-                CreatedOn = DateTime.Parse("2023-08-11 10:51:22.2284039")
+                Id = Guid.Parse("673AA22A-681F-4CD5-8754-383DAACA8832"),
+                UserId = Guid.Parse("A7497549-8106-4BCA-ADD8-7F755878BC67"),
+                CreatedOn = DateTime.Parse("2023-08-09 11:06:49.7782787")
             };
 
             CartProduct = new CartProduct()
             {
-                CartId = Guid.Parse("6b4f7387-48d3-49cc-b031-492b4a580e03"),
-                ProductId = 1,
-                Quantity = 3
+                CartId = Guid.Parse("673AA22A-681F-4CD5-8754-383DAACA8832"),
+                ProductId = 3,
+                Quantity = 10
             };
 
             Cart.CartProducts.Add(CartProduct);
@@ -52,17 +53,17 @@
 
             Order = new Order()
             {
-                Id = Guid.Parse("18279d70-fc5b-4f63-8793-9a27215f52f6"),
+                Id = Guid.Parse("21F67AB9-4E89-4DC0-9E6A-42A2C77CFB6B"),
                 FirstName = "Ventsislav",
-                LastName = "Minev",
-                Country = "Bulgaria",
-                City = "Sofia",
-                Address = "Lulin",
-                PostCode = "1329",
-                CreatedOn = DateTime.Parse("2023-08-11 09:52:51.9627022"),
-                UserId = Guid.Parse("a78e3e26-d852-4dd4-a1b6-76451d2f5d71"),
-                CartId = Guid.Parse("6b4f7387-48d3-49cc-b031-492b4a580e03"),
-                TotalPrice = 5000.00M
+                LastName = "sdfsdf",
+                Country = "sdfsdf",
+                City = "sdfsdf",
+                Address = "sdfsdf",
+                PostCode = "1412",
+                CreatedOn = DateTime.Parse("2023-08-10 18:55:51.5381902"),
+                UserId = Guid.Parse("A7497549-8106-4BCA-ADD8-7F755878BC67"),
+                CartId = Guid.Parse("673AA22A-681F-4CD5-8754-383DAACA8832"),
+                TotalPrice = 1900.00M
             };
 
             dbContext.Orders.Add(Order);

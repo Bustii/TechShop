@@ -18,8 +18,8 @@
 
         int categoryId;
 
-        [OneTimeSetUp]
-        public void OneTimeSetUp()
+        [SetUp]
+        public void SetUp()
         {
             this.dbOptions = new DbContextOptionsBuilder<TechShopDbContext>()
                  .UseInMemoryDatabase("TechShopInMemory" + Guid.NewGuid().ToString())
@@ -27,11 +27,11 @@
             dbContext = new TechShopDbContext(dbOptions);
 
             dbContext.Database.EnsureCreated();
-            SeedDatabase(this.dbContext);
+            SeedDatabase(dbContext);
 
             categoryService = new CategoryService(dbContext);
 
-            categoryId = 2;
+            categoryId = 1;
         }
 
         [TearDown]
