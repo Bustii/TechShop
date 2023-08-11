@@ -2,6 +2,7 @@
 {
     using Microsoft.EntityFrameworkCore;
     using TechShop.Data;
+    using TechShop.Services.Data;
     using TechShop.Services.Data.Interfaces;
     using TechShop.Web.ViewModels.Products;
     using static DatabaseSeeder;
@@ -28,6 +29,8 @@
 
             dbContext.Database.EnsureCreated();
             SeedDatabase(dbContext);
+
+            productService = new ProductService(dbContext);
 
             productId = 2;
             categoryId = 2;
@@ -183,16 +186,16 @@
         [Test]
         public async Task TurnActivityAsync_ShouldReturnOposite()
         {
-            var item = await dbContext
+            var product = await dbContext
                 .Products
                 .Where(i=>i.Id == productId)
                 .FirstAsync();
 
-            item.IsActive = false;
+            product.IsActive = false;
 
             await productService.TurnActivityAsync(productId);
 
-            Assert.That(item.IsActive, Is.True);
+            Assert.That(product.IsActive, Is.True);
         }
 
         [Test]
