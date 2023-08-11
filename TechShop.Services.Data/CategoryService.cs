@@ -117,6 +117,19 @@
             await dbContext.SaveChangesAsync();
         }
 
+        public async Task DeleteCategoryByIdAsync(int categoryId)
+        {
+            Category category = await dbContext
+                .Categories
+                .Where(c => c.Id == categoryId)
+                .FirstAsync();
+
+            category.IsDeleted = true;
+
+            dbContext.Remove(category);
+            await dbContext.SaveChangesAsync();
+        }
+
         public async Task EditCategoryAsync(int cateogryId, NewCategoryViewModel categoryModel)
         {
             var currCategory = await dbContext

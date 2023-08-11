@@ -1,6 +1,7 @@
 ﻿namespace TechShop.Web.Areas.Admin.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using TechShop.Services.Data;
     using TechShop.Services.Data.Interfaces;
     using TechShop.Web.ViewModels.Category;
 
@@ -116,7 +117,7 @@
         {
             try
             {
-                await categoryService.SoftDeleteCategoryAsync(id);
+                await categoryService.DeleteCategoryByIdAsync(id);
                 TempData[SuccessMessage] = "You deleted category successfully.";
                 return RedirectToAction("Categories", "Admin");
             }

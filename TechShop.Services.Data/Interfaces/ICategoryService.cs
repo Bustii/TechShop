@@ -27,5 +27,7 @@
         Task<NewCategoryViewModel> GetCategoryByIdAsync(int categoryId);
 
         Task SoftDeleteCategoryAsync(int categoryId);
+
+        Task DeleteCategoryByIdAsync(int categoryId);
     }
 }
