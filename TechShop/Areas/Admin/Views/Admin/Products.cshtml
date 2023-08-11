@@ -79,14 +79,11 @@
                         <td>@product.Name</td>
                         <td>@product.Model</td>
                         <td>$@product.Price</td>                        
-                        <form method="post">
-                        </form>
                         <td>
                             <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-warning ">Edit</a>
                         </td>
                         <td>
                             <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModel_@product.Id">Delete</a>
-
                             <div class="modal fade" id="deleteModel_@product.Id" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">

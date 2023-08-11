@@ -13,6 +13,7 @@
     {
 
         private readonly ICategoryService categoryService;
+        private readonly IProductService productService;
 
         public CategoryController(ICategoryService categoryService)
         {
@@ -35,6 +36,21 @@
                 return RedirectToAction("Index", "Home");
             }
 
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Products(string name)
+        {
+            try
+            {
+                var products = await productService.AllProductsByChoosenCategoryAsync(name);
+
+                return View(products);
+            }
+            catch (Exception)
+            {
+                return GenerealCategoryError();
+            }
         }
 
         [HttpGet]

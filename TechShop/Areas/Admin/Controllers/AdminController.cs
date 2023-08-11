@@ -64,6 +64,7 @@
             {
                 return GeneralErrorMessage();
             }
+
         }
 
         public async Task<IActionResult> Users([FromQuery] AllUsersQueryModel queryModel)

@@ -37,9 +37,9 @@
         {
             try
             {
-                var cateogryModel = new NewCategoryViewModel();
+                var categoryModel = new NewCategoryViewModel();
 
-                return View(cateogryModel);
+                return View(categoryModel);
             }
             catch (Exception)
             {

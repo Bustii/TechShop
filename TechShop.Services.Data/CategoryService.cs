@@ -29,7 +29,7 @@
                     Id = c.Id,
                     Name = c.Name,
                 })
-                .ToArrayAsync();
+                .ToListAsync();
 
             return allCategories;
         }
@@ -78,7 +78,7 @@
             };
 
             IEnumerable<CategoryDetailsViewModel> allCategories = await categoryQuery
-                    .Where(h => h.IsDeleted)
+                    .Where(h => h.IsDeleted == false)
                     .Skip((queryModel.CurrentPage - 1) * queryModel.CategoriesPerPage)
                     .Take(queryModel.CategoriesPerPage)
                     .Select(h => new CategoryDetailsViewModel
