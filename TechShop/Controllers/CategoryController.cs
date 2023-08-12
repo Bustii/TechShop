@@ -8,6 +8,8 @@
     using Infrastructure.Extensions;
 
     using static Common.NotificationMessagesConstants;
+    using static Common.GeneralApplicationConstans;
+
     [Authorize]
     public class CategoryController : Controller
     {
@@ -23,6 +25,14 @@
         [HttpGet]
         public async Task<IActionResult> All()
         {
+            bool isUserAdmin = User.IsInRole(AdminRoleName);
+            if (!isUserAdmin)
+            {
+                TempData[ErrorMessage] = "You are not authorized to add new products!";
+
+                return RedirectToAction("All", "Product");
+            }
+
             try
             {
                 IEnumerable<AllCategoriesViewModel> viewModel =
@@ -41,6 +51,14 @@
         [HttpGet]
         public async Task<IActionResult> Products(string name)
         {
+            bool isUserAdmin = User.IsInRole(AdminRoleName);
+            if (!isUserAdmin)
+            {
+                TempData[ErrorMessage] = "You are not authorized to add new products!";
+
+                return RedirectToAction("All", "Product");
+            }
+
             try
             {
                 var products = await productService.AllProductsByChoosenCategoryAsync(name);

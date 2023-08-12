@@ -23,7 +23,7 @@
             </p>
             <p>Description: <b>@Model.Description</b></p>
             <p>Category: <b>@Model.Category</b></p>
-            <div class="form-inline">
+            <div class="form-floating mb-2">
                 @if (User.Identity?.IsAuthenticated ?? false)
                 {
                     @if (User.IsAdmin())

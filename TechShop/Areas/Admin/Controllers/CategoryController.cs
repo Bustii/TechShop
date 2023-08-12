@@ -91,14 +91,6 @@
         [HttpPost]
         public async Task<IActionResult> Edit(int id, NewCategoryViewModel categoryModel)
         {
-
-            if (!ModelState.IsValid || string.IsNullOrWhiteSpace(categoryModel.Image))
-            {
-                TempData[ErrorMessage] = "An unexpected error occurred! Please, try again.";
-
-                return View(categoryModel);
-            }
-
             try
             {
                 await categoryService.EditCategoryAsync(id, categoryModel);

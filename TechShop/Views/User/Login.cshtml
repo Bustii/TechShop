@@ -17,19 +17,11 @@
                     <label asp-for="Email" class="form-label"></label>
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
-                <div class="form-floating">
+                <div class="form-floating mb-2">
                     <input asp-for="Password" class="form-control" autocomplete="current-password" aria-required="true" />
                     <label asp-for="Password" class="form-label"></label>
                     <span asp-validation-for="Password" class="text-danger"></span>
-                </div>
-                <div>
-                    <div class="checkbox">
-                        <label asp-for="RememberMe" class="form-label">
-                            <input class="form-check-input" asp-for="RememberMe" />
-                            @Html.DisplayNameFor(m => m.RememberMe)
-                        </label>
-                    </div>
-                </div>
+                </div>            
                 <div>
                     <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
                 </div>
