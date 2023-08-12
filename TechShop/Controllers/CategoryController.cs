@@ -28,7 +28,7 @@
             bool isUserAdmin = User.IsInRole(AdminRoleName);
             if (!isUserAdmin)
             {
-                TempData[ErrorMessage] = "You are not authorized to add new products!";
+                TempData[ErrorMessage] = "You are not authorized to see all categories!";
 
                 return RedirectToAction("All", "Product");
             }
@@ -54,7 +54,7 @@
             bool isUserAdmin = User.IsInRole(AdminRoleName);
             if (!isUserAdmin)
             {
-                TempData[ErrorMessage] = "You are not authorized to add new products!";
+                TempData[ErrorMessage] = "You are not authorized to see category products!";
 
                 return RedirectToAction("All", "Product");
             }
