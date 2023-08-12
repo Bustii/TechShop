@@ -12,8 +12,8 @@ using TechShop.Data;
 namespace TechShop.Data.Migrations
 {
     [DbContext(typeof(TechShopDbContext))]
-    [Migration("20230812160257_AddSomeProductsToDB")]
-    partial class AddSomeProductsToDB
+    [Migration("20230812164753_AddedNewProductsToDb")]
+    partial class AddedNewProductsToDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -447,7 +447,7 @@ namespace TechShop.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2023, 8, 12, 16, 2, 56, 846, DateTimeKind.Utc).AddTicks(4727));
+                        .HasDefaultValue(new DateTime(2023, 8, 12, 16, 47, 53, 197, DateTimeKind.Utc).AddTicks(2611));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -495,12 +495,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 1,
                             CategoryId = 3,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5495),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3650),
                             Description = "Intel Core i7-13700F\r\nNVIDIA GeForce RTX 4070 Ti\r\n32GB DDR5\r\nот 1TB SSD NVMe до 4TB (SSD NVMe и HDD)",
                             ImageUrl = "https://laptop.bg/system/images/413287/normal/Predator_Orion_7000_PO5_650.png",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5531),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3696),
                             Model = "Acer",
                             Name = "Predator Orion 5000 PO5-650",
                             Price = 2300.00m
@@ -509,12 +509,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 2,
                             CategoryId = 2,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5543),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3711),
                             Description = "Intel Core i9-13980HX\r\nNVIDIA GeForce RTX 4090\r\n64GB DDR5\r\nот 2TB SSD NVMe до 4TB SSD NVMe",
                             ImageUrl = "https://laptop.bg/system/images/378257/normal/msi_titan_gt77_hx_13vi_9S717Q211055.png",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5544),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3714),
                             Model = "MSI",
                             Name = "Titan GT77 HX 13VI",
                             Price = 2800.00m
@@ -523,12 +523,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 3,
                             CategoryId = 2,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5547),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3719),
                             Description = "AMD Ryzen™ 7 4800H\r\nNVIDIA GeForce RTX 3050\r\nот 16GB до 64GB DDR4\r\nот 512GB SSD NVMe до 2512GB SSD NVMe",
                             ImageUrl = "https://laptop.bg/system/images/293133/normal/asus_rog_strix_g15_g513ichn004.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5549),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3721),
                             Model = "Asus",
                             Name = "ROG Strix G15 G513IC-HN004",
                             Price = 1900.00m
@@ -537,12 +537,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 4,
                             CategoryId = 1,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5551),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3724),
                             Description = "от Intel Core i9-13900K\r\nFull Water Loop\r\nGeForce RTX 4090\r\n64GB DDR5\r\nот 2TB Gen4 PCIe NVMe SSD",
                             ImageUrl = "https://laptop.bg/system/images/409277/normal/grigs_hyperion_by_alexma3x.png",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5553),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3726),
                             Model = "Asus",
                             Name = "ROG Hyperion",
                             Price = 5000.00m
@@ -551,12 +551,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 5,
                             CategoryId = 1,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5558),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3735),
                             Description = "от Intel Core i5-12400F\nот Radeon RX 6650 XT до RTX 4070 Ti\nот 16GB DDR4\nот 1TB PCIe Gen3 NVMe SSD",
                             ImageUrl = "https://laptop.bg/system/images/415856/normal/grigs_arena_intel_gen12.png",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5560),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3737),
                             Model = "MSI",
                             Name = "Arena",
                             Price = 1999.00m
@@ -565,12 +565,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 6,
                             CategoryId = 1,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5562),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3740),
                             Description = "от AMD Ryzen 5 5600\nот Radeon RX 6650 XT до RTX 4070\nот 16GB DDR4\nот 1TB Gen3 PCIe NVMe SSD",
                             ImageUrl = "https://laptop.bg/system/images/317025/normal/grigs_twister_white_amd.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5564),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3742),
                             Model = "Asus",
                             Name = "Twister White",
                             Price = 2039.00m
@@ -579,12 +579,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 7,
                             CategoryId = 2,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5566),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3746),
                             Description = "AMD Ryzen™ 9 7945HX\nNVIDIA GeForce RTX 4080\nот 32GB до 64GB DDR5\nот 1TB SSD NVMe до 3TB SSD NVMe",
                             ImageUrl = "https://laptop.bg/system/images/395279/normal/asus_rog_zephyrus_duo_16_gx650pznm014x.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5568),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3748),
                             Model = "Asus",
                             Name = "ROG Zephyrus Duo 16",
                             Price = 8499.00m
@@ -593,12 +593,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 8,
                             CategoryId = 3,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5596),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3751),
                             Description = "от AMD Ryzen 7 7800X3D\nот GeForce RTX 4070 Ti до RTX 4090\nот 32GB DDR5\nот 1TB Gen4 PCIe NVMe SSD",
                             ImageUrl = "https://laptop.bg/system/images/410555/normal/grigs_athena_icue_amd_zen4.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5598),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3752),
                             Model = "Acer",
                             Name = "Athena iCue",
                             Price = 5639.00m
@@ -607,12 +607,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 9,
                             CategoryId = 3,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5603),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3758),
                             Description = "от AMD Ryzen 7 5800X3D\nот GeForce RTX 4070 Ti до RTX 4090\nот 32GB DDR4\nот 1TB Gen4 PCIe NVMe SSD",
                             ImageUrl = "https://laptop.bg/system/images/347415/normal/grigs_apolo_icue_amd.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5604),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3760),
                             Model = "Asus",
                             Name = "Apollo iCue",
                             Price = 4889.00m
@@ -621,12 +621,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 10,
                             CategoryId = 4,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5607),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3763),
                             Description = "31.5\" OLED\r\n3840x2160 (4K UHD)\r\n99% DCI-P3\r\n99% Adobe RGB\r\nUSB Type-C",
                             ImageUrl = "https://laptop.bg/system/images/309623/normal/lg_32ep950b.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5608),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3765),
                             Model = "LG",
                             Name = "32EP950-B",
                             Price = 7559.00m
@@ -635,12 +635,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 11,
                             CategoryId = 4,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5611),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3768),
                             Description = "27” IPS\r\n3840x2160 (4K Ultra HD)\r\nUSB Type-C\r\nHDR10\r\nCalman Ready",
                             ImageUrl = "https://laptop.bg/system/images/354936/normal/asus_proart_pa27ucxk.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5612),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3770),
                             Model = "Asus",
                             Name = "ProArt PA27UCX-K",
                             Price = 5949.00m
@@ -649,12 +649,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 12,
                             CategoryId = 4,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5615),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3774),
                             Description = "55\" VA 165Hz Извит\r\n3840x2160 (4K Ultra HD)\r\nAMD FreeSync™ Premium Pro\r\nQuantum Matrix технология\r\nTizen™",
                             ImageUrl = "https://laptop.bg/system/images/413122/normal/samsung_odyssey_ark_ls55bg970nuxen.png",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5616),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3775),
                             Model = "Samsung",
                             Name = "Odysseu Ark LS55BG97ONUXEN",
                             Price = 3999.00m
@@ -663,12 +663,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 13,
                             CategoryId = 5,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5619),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3779),
                             Description = "безжична гейминг клавиатура\r\nултра тънък дизайн\r\nнископрофилни GL Clicky суичове\r\nрегулируема LIGHTSYNC RGB подсветка",
                             ImageUrl = "https://laptop.bg/system/images/334363/normal/logitech_g915_tkl_lightspeed_wireless_rgb_mechanical_gaming_keyboard_gl_clicky_carbon_us_intl_intnl.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5620),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3781),
                             Model = "Logitech",
                             Name = "G915 TKL",
                             Price = 459.00m
@@ -677,12 +677,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 14,
                             CategoryId = 5,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5623),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3785),
                             Description = "геймърска клавиатура\r\nRazer™ HyperSpeed Wireless (2.4 Ghz)/ Bluetooth/Type-C свързаност\r\nN-key roll over\r\nбордова памет и съхранение в облака - до 5 профила",
                             ImageUrl = "https://laptop.bg/system/images/393664/normal/RZ0304370100R3M1.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5624),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3787),
                             Model = "Razer",
                             Name = "DeathStalker V2 Pro tenkeyless",
                             Price = 389.00m
@@ -691,12 +691,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 15,
                             CategoryId = 5,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5627),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3791),
                             Description = "механични Cherry MX суитчове\r\nRGB подсветка\r\nпрограмируеми клавиши\r\nаудио контрол",
                             ImageUrl = "https://laptop.bg/system/images/231437/normal/545BBCL.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5628),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3794),
                             Model = "Alienware",
                             Name = "AW510K",
                             Price = 364.00m
@@ -705,12 +705,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 16,
                             CategoryId = 6,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5631),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3797),
                             Description = "Razer™ HyperSpeed Wireless\r\n3 сменяеми странични плочи\r\nдо 19+1 програмируеми бутона\r\nживот на батерията до 150 часа",
                             ImageUrl = "https://laptop.bg/system/images/308636/normal/RZ0103420100R3G1.png",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5632),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3800),
                             Model = "Razer",
                             Name = "Naga Pro",
                             Price = 329.00m
@@ -719,12 +719,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 17,
                             CategoryId = 6,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5635),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3804),
                             Description = "Hero сензор с 25 600 DPI (след firmware update в G HUB)\r\n1ms LIGHTSPEED безжична технология\r\nсъвместимост с POWERPLAY\r\n114гр. тегло\r\nвъзможност за Hyper-scrolling",
                             ImageUrl = "https://laptop.bg/system/images/247224/normal/910005567.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5636),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3806),
                             Model = "Logitech",
                             Name = "G502 Lightspeed",
                             Price = 309.00m
@@ -733,12 +733,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 18,
                             CategoryId = 6,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5639),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3810),
                             Description = "жичен /безжичен режим\r\n8 програмируеми бутона\r\nAlienFX осветяване подсветка\r\nдо 420 часа живот на батерията",
                             ImageUrl = "https://laptop.bg/system/images/393464/normal/545BBDN14.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5641),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3812),
                             Model = "Alienware",
                             Name = "Tri-Mode Wireless",
                             Price = 306.00m
@@ -747,12 +747,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 19,
                             CategoryId = 7,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5645),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3818),
                             Description = "гумена основа\r\nподсветка\r\nсинхронизация на цветовете\r\nв черно",
                             ImageUrl = "https://laptop.bg/system/images/206283/normal/RZ0202500300R3M1.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5647),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3821),
                             Model = "Razer",
                             Name = "Goliathus Extended Chroma",
                             Price = 149.00m
@@ -761,12 +761,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 20,
                             CategoryId = 7,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5650),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3824),
                             Description = "уеб камера Full HD 1080p\r\nкорекция на светлината\r\nавтоматично кадриране\r\nрежим на показване",
                             ImageUrl = "https://laptop.bg/system/images/373676/normal/960001422.png",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5651),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3826),
                             Model = "Logitech",
                             Name = "Brio 500",
                             Price = 259.00m
@@ -775,12 +775,12 @@ namespace TechShop.Data.Migrations
                         {
                             Id = 21,
                             CategoryId = 7,
-                            CreatedOn = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5653),
+                            CreatedOn = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3862),
                             Description = "USB Type-C\r\nDisplayPort\r\nHDMI\r\nRJ-45",
                             ImageUrl = "https://laptop.bg/system/images/331442/normal/lenovo_thinkpad_hybrid_usbc_with_usba_dock.jpg",
                             IsActive = true,
                             IsDeleted = false,
-                            LastEdit = new DateTime(2023, 8, 12, 19, 2, 56, 846, DateTimeKind.Local).AddTicks(5655),
+                            LastEdit = new DateTime(2023, 8, 12, 19, 47, 53, 197, DateTimeKind.Local).AddTicks(3865),
                             Model = "Lenovo",
                             Name = "ThinkPad Hybrid",
                             Price = 589.00m
