@@ -140,11 +140,11 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             try
             {
-                await productService.SoftDeleteProductAsync(id);
+                await productService.DeleteProductByIdAsync(id);
                 TempData[SuccessMessage] = "You deleted the product successfully.";
                 return RedirectToAction("Products", "Admin");
             }
